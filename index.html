@@ -228,6 +228,32 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 .press-row:hover .press-arrow{color:var(--green);transform:translate(6px,-6px)}
 @media(max-width:760px){.press-row{grid-template-columns:1fr;gap:6px;padding:20px 0}.press-arrow{display:none}}
 
+/* ─── BAMBOO TECH ─── */
+.bamboo-tabs{display:flex;gap:4px;flex-wrap:wrap;margin:32px 0 24px}
+.bamboo-tab{padding:10px 18px;font-family:var(--font-display);font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:rgba(0,0,0,.6);border:1px solid rgba(0,0,0,.2);transition:all .25s;background:transparent;cursor:pointer}
+.bamboo-tab:hover{background:rgba(0,0,0,.06);color:#000}
+.bamboo-tab.is-active{background:#000;color:var(--green);border-color:#000}
+.bamboo-content{margin-bottom:28px;min-height:140px}
+.bamboo-pane h3{font-family:var(--font-display);font-size:24px;line-height:1.05;margin:0 0 12px;text-transform:uppercase;letter-spacing:-.01em;color:#000}
+.bamboo-pane p{font-size:16px;line-height:1.55;color:rgba(0,0,0,.78);margin:0;max-width:560px}
+.bamboo-rotator{display:flex;flex-direction:column;align-items:center;gap:14px}
+.bamboo-rotator-frame{background:#000;border:2px solid #000;box-shadow:20px 20px 0 rgba(0,0,0,.18);width:100%;max-width:520px;aspect-ratio:4/3;position:relative;overflow:hidden}
+.bamboo-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s cubic-bezier(.2,.7,.2,1)}
+.bamboo-img.is-active{opacity:1}
+.bamboo-rotator-dots{display:flex;gap:8px}
+.bamboo-dot{width:10px;height:10px;border-radius:50%;background:rgba(0,0,0,.3);border:0;padding:0;cursor:pointer;transition:all .25s}
+.bamboo-dot:hover{background:rgba(0,0,0,.6)}
+.bamboo-dot.is-active{background:#000;transform:scale(1.3)}
+.bamboo-quote{margin-top:80px;padding:48px;background:#000;color:#fff;border-left:4px solid var(--green);max-width:880px}
+.bamboo-quote p:first-child{font-family:var(--font-serif);font-style:italic;font-size:clamp(20px,2.4vw,28px);line-height:1.4;margin:0 0 16px;color:#fff}
+.bamboo-quote-attr{font-size:13px;letter-spacing:.15em;text-transform:uppercase;color:var(--green);margin:0;font-family:var(--font-display)}
+.bamboo-quote-note{font-size:12px;color:rgba(255,255,255,.5);margin:8px 0 0}
+@media(max-width:880px){
+  .bamboo-rotator-frame{box-shadow:10px 10px 0 rgba(0,0,0,.18)}
+  .bamboo-tabs{margin:24px 0 18px}
+  .bamboo-tab{padding:8px 14px;font-size:10px}
+}
+
 /* ─── TECH ─── */
 .tech{padding:160px 0;background:var(--green);color:#000;overflow:hidden;position:relative}
 .tech::before{content:"PANDA TECHNOLOGY · PANDA TECHNOLOGY · PANDA TECHNOLOGY · ";position:absolute;top:40px;left:0;right:0;white-space:nowrap;font-family:var(--font-display);font-size:14vw;line-height:1;color:rgba(0,0,0,.06);letter-spacing:-.02em;animation:scroll 80s linear infinite;width:max-content;pointer-events:none}
@@ -292,6 +318,52 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 .reveal.is-in{opacity:1;transform:translateY(0)}
 
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+/* ─── MOBILE TIGHTENING ─── */
+@media(max-width:680px){
+  .wrap{padding:0 20px}
+  .hero{padding:120px 0 60px;min-height:auto}
+  .hero-eyebrow{font-size:10px;letter-spacing:.25em}
+  .hero-mark{font-size:clamp(56px,15vw,84px);line-height:.88}
+  .hero-meta{flex-direction:column;align-items:flex-start;gap:24px;margin-top:32px}
+  .hero-tagline{font-size:16px}
+  .hero-cta{width:100%}
+  .hero-cta a{flex:1;justify-content:center;padding:16px 20px;font-size:11px}
+  .ticker{padding:14px 0}
+  .ticker-track{font-size:12px;gap:32px}
+  .story{padding:80px 0}
+  .story-stats{grid-template-columns:1fr 1fr;gap:24px;margin-top:40px}
+  .marquee{padding:40px 0}
+  .marquee-track{gap:48px}
+  .marquee-track img{height:36px}
+  .brands{padding:80px 0}
+  .brands-head{margin-bottom:48px}
+  .brand-card{padding:20px}
+  .brand-card-logo img{max-height:64px}
+  .awards-head h2{font-size:clamp(32px,8vw,48px)}
+  .award-row{padding:16px 0}
+  .press{padding:80px 0}
+  .press-head h2{font-size:clamp(28px,7vw,40px)}
+  .press-row{padding:18px 0}
+  .press-pub{font-size:11px}
+  .tech{padding:100px 0}
+  .tech-grid{grid-template-columns:1fr;gap:40px;padding-top:60px}
+  .bamboo-tabs{margin:20px 0 16px}
+  .bamboo-tab{padding:8px 12px;font-size:10px}
+  .bamboo-pane h3{font-size:20px}
+  .bamboo-pane p{font-size:15px}
+  .bamboo-rotator-frame{max-width:none;box-shadow:8px 8px 0 rgba(0,0,0,.18)}
+  .bamboo-quote{margin-top:48px;padding:32px 24px}
+  .cta-band{padding:80px 0}
+  .cta-band h2{font-size:clamp(40px,10vw,56px);line-height:.95}
+  .cta-band-buttons{flex-direction:column}
+  .cta-band-buttons a{width:100%;justify-content:center}
+  .foot{padding-top:48px}
+  .foot-legal{font-size:11px}
+  .totop{right:16px;bottom:16px}
+  .showcase{padding:80px 0}
+  .showcase-grid{gap:8px}
+}
 </style>
 </head>
 <body>
@@ -423,28 +495,28 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
     <h2 class="showcase-title">Real product, <em>real rooms.</em></h2>
 
     <div class="showcase-grid">
-      <a class="showcase-card showcase-card--flower" href="https://phatpandastore.com/collections/flower" target="_blank" rel="noopener" style="--bg-img: none">
+      <a class="showcase-card showcase-card--flower" href="https://phatpandastore.com/collections/flower" target="_blank" rel="noopener" style="--bg-img: url('/assets/img/products/flower.jpg')">
         <div class="showcase-card-inner">
           <span class="showcase-card-tag">Flower</span>
           <h3>Phat Panda</h3>
           <p>Hand-trimmed, single-strain, top-shelf nugs</p>
         </div>
       </a>
-      <a class="showcase-card showcase-card--concentrate" href="https://phatpandastore.com/collections/concentrates" target="_blank" rel="noopener" style="--bg-img: none">
+      <a class="showcase-card showcase-card--concentrate" href="https://phatpandastore.com/collections/concentrates" target="_blank" rel="noopener" style="--bg-img: url('/assets/img/products/concentrate.jpg')">
         <div class="showcase-card-inner">
           <span class="showcase-card-tag">Concentrates</span>
           <h3>Dabstract</h3>
           <p>Live rosin · live resin · cured resin</p>
         </div>
       </a>
-      <a class="showcase-card showcase-card--vape" href="https://phatpandastore.com/collections/vapes" target="_blank" rel="noopener" style="--bg-img: none">
+      <a class="showcase-card showcase-card--vape" href="https://phatpandastore.com/collections/vapes" target="_blank" rel="noopener" style="--bg-img: url('/assets/img/products/vape.jpg')">
         <div class="showcase-card-inner">
           <span class="showcase-card-tag">Vape</span>
           <h3>Panda Pen</h3>
           <p>Pure live-resin carts and disposables</p>
         </div>
       </a>
-      <a class="showcase-card showcase-card--edible" href="https://phatpandastore.com/collections/edibles" target="_blank" rel="noopener" style="--bg-img: none">
+      <a class="showcase-card showcase-card--edible" href="https://phatpandastore.com/collections/edibles" target="_blank" rel="noopener" style="--bg-img: url('/assets/img/products/edible.jpg')">
         <div class="showcase-card-inner">
           <span class="showcase-card-tag">Edibles</span>
           <h3>Hot Sugar</h3>
@@ -453,7 +525,6 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
       </a>
     </div>
 
-    <p class="showcase-note">Drop real product photography in by editing the <code>--bg-img</code> values above — JPG/WebP 1200×1600.</p>
   </div>
 </section>
 
@@ -601,125 +672,49 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
       <div>
         <p class="tech-label">— Powered by Bamboo</p>
         <h2>Built on the <em>best stack</em> in cannabis.</h2>
-        <p>Running 12 brands across 3 states means traceability, compliance, and sales can't be an afterthought. We run our entire operation — seed-to-sale, CRM, manifests, sales orders, reporting — on <a href="https://getbamboo.com" target="_blank" rel="noopener" style="color:#000;text-decoration:underline;text-underline-offset:3px">Bamboo</a>, the cannabis platform built for operators who actually scale.</p>
-        <ul>
-          <li>Bamboo Trace — seed-to-sale, BioTrack / Metrc / CCRS compliance</li>
-          <li>Bamboo Sales CRM — B2B order management and outreach</li>
-          <li>Smart Cart AI — order-building automation</li>
-          <li>Real-time live inventory across every license</li>
-          <li>Manifests and labeling in minutes, not hours</li>
-        </ul>
+        <p>Running 12 brands across 3 states means traceability, compliance, and sales can't be an afterthought. We run our entire operation — seed-to-sale, CRM, manifests, sales orders, reporting — on <a href="https://getbamboo.com" target="_blank" rel="noopener" style="color:#000;text-decoration:underline;text-underline-offset:3px;font-weight:600">Bamboo</a>, the cannabis platform built for operators who actually scale.</p>
+
+        <div class="bamboo-tabs">
+          <button class="bamboo-tab is-active" data-bt="trace">Bamboo Trace</button>
+          <button class="bamboo-tab" data-bt="sales">Bamboo Sales</button>
+          <button class="bamboo-tab" data-bt="smart">Smart Cart AI</button>
+          <button class="bamboo-tab" data-bt="portal">Bamboo Portal</button>
+        </div>
+
+        <div class="bamboo-content" data-active="trace">
+          <div class="bamboo-pane" data-pane="trace">
+            <h3>Total visibility, total control.</h3>
+            <p>Seed-to-sale tracking compliant with BioTrack, Metrc, and CCRS — every state we operate in. Inventory updates in real-time across all our licenses, manifests generate in minutes, and labels print from one screen.</p>
+          </div>
+          <div class="bamboo-pane" data-pane="sales" hidden>
+            <h3>B2B sales without the spreadsheets.</h3>
+            <p>Centralized CRM for every retailer relationship. Customizable sales menus, email marketing, recommended orders, abandoned-cart tracking — all in one place, all wired to live inventory.</p>
+          </div>
+          <div class="bamboo-pane" data-pane="smart" hidden>
+            <h3>AI-powered order building.</h3>
+            <p>Smart Cart analyzes purchase history and preferences, then auto-builds an optimized order. Sales reps set the budget, pick categories, and Smart Cart drafts a complete cart in under a minute.</p>
+          </div>
+          <div class="bamboo-pane" data-pane="portal" hidden>
+            <h3>One login, every license.</h3>
+            <p>Single sign-on across multi-state, multi-license operations. Pre-defined role-based permissions, unified billing, accessible from any device. The control center for the whole company.</p>
+          </div>
+        </div>
+
         <a href="https://getbamboo.com" target="_blank" rel="noopener" class="tech-cta">Learn about Bamboo ↗</a>
       </div>
-      <div class="tech-mock">
-        <div class="tech-mock-head"><strong>Bamboo Sales</strong><span>● Live</span></div>
-        <div class="tech-mock-rows">
-          <div class="tech-mock-row"><span>Live inventory</span><strong>14,328 u</strong></div>
-          <div class="tech-mock-row"><span>Open orders</span><strong>92</strong></div>
-          <div class="tech-mock-row"><span>Active SKUs</span><strong>418</strong></div>
-          <div class="tech-mock-row"><span>This week revenue</span><strong>$847k</strong></div>
+
+      <div class="bamboo-rotator" aria-label="Bamboo platform screenshots">
+        <div class="bamboo-rotator-frame">
+          <img class="bamboo-img is-active" data-img="trace" src="https://getbamboo.com/wp-content/uploads/2022/09/products-inventory-tablet.webp" alt="Bamboo Trace inventory dashboard" loading="lazy">
+          <img class="bamboo-img" data-img="sales" src="https://getbamboo.com/wp-content/uploads/2024/04/Bamboo-Sales-Menu-1024x566.jpg" alt="Bamboo Sales menu" loading="lazy">
+          <img class="bamboo-img" data-img="smart" src="https://getbamboo.com/wp-content/uploads/2025/12/SmartCart.png" alt="Bamboo Smart Cart AI" loading="lazy">
+          <img class="bamboo-img" data-img="portal" src="https://getbamboo.com/wp-content/uploads/2022/09/products-macbook.webp" alt="Bamboo Portal interface" loading="lazy">
         </div>
-        <div class="tech-mock-chart"><i style="height:45%"></i><i style="height:78%"></i><i style="height:62%"></i><i style="height:91%"></i><i style="height:55%"></i><i style="height:84%"></i><i style="height:70%"></i></div>
-        <p style="font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.45);margin:20px 0 0;text-align:center">Representative dashboard — getbamboo.com</p>
+        <div class="bamboo-rotator-dots">
+          <button class="bamboo-dot is-active" data-bt="trace" aria-label="Trace"></button>
+          <button class="bamboo-dot" data-bt="sales" aria-label="Sales"></button>
+          <button class="bamboo-dot" data-bt="smart" aria-label="Smart Cart"></button>
+          <button class="bamboo-dot" data-bt="portal" aria-label="Portal"></button>
+        </div>
       </div>
-    </div>
-
-    <div style="margin-top:80px;padding:48px;background:#000;color:#fff;border-left:4px solid var(--green);max-width:880px">
-      <p style="font-family:var(--font-serif);font-style:italic;font-size:clamp(20px,2.4vw,28px);line-height:1.4;margin:0 0 16px;color:#fff">"Bamboo has helped streamline the sales operation, allowing my team and I to focus more on the branding and cultivation side of the business."</p>
-      <p style="font-size:13px;letter-spacing:.15em;text-transform:uppercase;color:var(--green);margin:0;font-family:var(--font-display)">Rob McKinley · CEO, Phat Panda</p>
-      <p style="font-size:12px;color:rgba(255,255,255,.5);margin:8px 0 0">Featured on the Bamboo homepage as America's Top Privately-Owned Cultivator.</p>
-    </div>
-  </div>
-</section>
-
-<!-- CTA BAND -->
-<section class="cta-band">
-  <div class="wrap">
-    <h2>Join the <em>Panda family.</em></h2>
-    <p>550 team members. Three states. Real benefits, real growth tracks, free product samples every month. We hire growers, packagers, scientists, designers — and we treat them like family.</p>
-    <div class="cta-band-buttons">
-      <a href="/careers.html" class="a-primary">View open roles →</a>
-      <a href="/contact.html" class="a-ghost">Wholesale inquiries</a>
-    </div>
-  </div>
-</section>
-
-</main>
-
-<!-- FOOTER -->
-<footer class="foot">
-  <div class="wrap">
-    <div class="foot-grid">
-      <div>
-        <a href="/" class="foot-logo" aria-label="Phat Panda home"><img src="https://phatpanda.com/assets/img/logos/PP-WhiteGreen-Wide.svg" alt=""></a>
-        <p class="foot-tag">Premium Washington cannabis since 2014. Cultivated, extracted, packaged and shipped by the Panda family in Spokane Valley, WA.</p>
-      </div>
-      <div>
-        <h4>Visit</h4>
-        <address>2611 N Woodruff Rd<br>Spokane Valley, WA 99206</address>
-        <p style="font-size:12px;color:rgba(255,255,255,.45);margin-top:12px;">Employee verification only:<br><a href="tel:+15046122673" style="color:var(--green)">+1 (504) 612-2673</a></p>
-      </div>
-      <div>
-        <h4>Explore</h4>
-        <ul>
-          <li><a href="#story">About</a></li>
-          <li><a href="#brands">Brands</a></li>
-          <li><a href="/retailers.html">Find Us</a></li>
-          <li><a href="/news/">News</a></li>
-          <li><a href="/press.html">Press Kit</a></li>
-          <li><a href="#awards">Awards</a></li>
-          <li><a href="#tech">Technology</a></li>
-          <li><a href="/careers.html">Careers</a></li>
-          <li><a href="/contact.html">Contact</a></li>
-          <li><a href="/brand-guide.html">Brand Guide</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Follow</h4>
-        <ul>
-          <li><a href="https://www.instagram.com/phatpanda/" target="_blank" rel="noopener">Instagram</a></li>
-          <li><a href="https://www.facebook.com/phatpandastore/" target="_blank" rel="noopener">Facebook</a></li>
-          <li><a href="https://twitter.com/phatpanda" target="_blank" rel="noopener">X / Twitter</a></li>
-          <li><a href="https://www.youtube.com/channel/UCqo7FtH5laZXTYvu8_jVYcw" target="_blank" rel="noopener">YouTube</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="foot-legal">
-      <p><strong>Warning:</strong> This product has intoxicating effects and may be habit forming. Cannabis can impair concentration, coordination, and judgment. Do not operate a vehicle or machinery under the influence. For use only by adults 21 and older. Keep out of reach of children.</p>
-      <p><strong>Licensee:</strong> CDXX Virtuosi Group, LLC · <strong>License Type:</strong> Microbusiness — Distribution, Level 1 Manufacturing, Cultivation, Nursery · <strong>License #:</strong> C12-0000319-LIC</p>
-      <p style="padding-top:12px;border-top:1px solid var(--line);margin-top:16px;">© <span id="yr">2026</span> Phat Panda LLC. All rights reserved.</p>
-    </div>
-  </div>
-</footer>
-
-<a href="#top" class="totop" id="totop" aria-label="Back to top">↑</a>
-
-<script>
-(function(){
-  // Age gate — DISABLED. Flip this to true to re-enable. Cookie lasts 30 days once user accepts.
-  var AGE_GATE_DISABLED = true;
-  var K='pp_age';
-  function readCookie(name){ var m = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)')); return m ? m[1] : null; }
-  function writeCookie(name, val, days){ var d = new Date(); d.setTime(d.getTime() + days*86400000); document.cookie = name+'='+val+'; expires='+d.toUTCString()+'; path=/; SameSite=Lax'; }
-  var gate = document.getElementById('gate');
-  if (!AGE_GATE_DISABLED && gate) {
-    var passed = readCookie(K) || localStorage.getItem(K) || sessionStorage.getItem(K) || new URLSearchParams(location.search).has('skip');
-    if (passed) { gate.hidden = true; } else { document.body.style.overflow = 'hidden'; }
-    document.getElementById('g-yes')?.addEventListener('click', function(){
-      writeCookie(K, '1', 30); localStorage.setItem(K, '1');
-      gate.hidden = true; document.body.style.overflow = '';
-    });
-    document.getElementById('g-no')?.addEventListener('click', function(){ location.href = 'https://www.google.com'; });
-  }
-
-  // Nav scroll state + burger
-  var nav=document.getElementById('nav'),burger=document.getElementById('burger'),links=document.getElementById('nav-links'),totop=document.getElementById('totop');
-  window.addEventListener('scroll',function(){
-    var y=window.scrollY;
-    nav.classList.toggle('is-pinned',y>40);
-    totop.classList.toggle('is-on',y>600);
-  },{passive:true});
-  burger.onclick=function(){
-    var open=links.classList.toggle('is-open');
-    burger.classList.toggle('is-open',open);
-    burger.setAttribute('aria-expan
+    <

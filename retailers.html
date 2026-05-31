@@ -69,6 +69,26 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 /* LOCATOR */
 .locator{display:grid;grid-template-columns:420px 1fr;height:calc(100vh - 200px);min-height:600px;border-top:1px solid var(--line)}
 @media(max-width:1000px){.locator{grid-template-columns:1fr;height:auto}.locator-list{height:60vh}.locator-map-wrap{height:60vh}}
+@media(max-width:680px){
+  .nav{padding:16px 20px}
+  .wrap{padding:0 20px}
+  .hero{padding:60px 0 30px}
+  .hero h1{font-size:clamp(40px,11vw,64px);line-height:.92}
+  .hero p{font-size:15px}
+  .locator{height:auto;grid-template-columns:1fr}
+  .locator-list{height:auto;max-height:none;border-right:0;border-bottom:1px solid var(--line)}
+  .locator-list-head{padding:18px}
+  .locator-search input{padding:12px 12px 12px 40px;font-size:14px}
+  .locator-filters{gap:4px}
+  .locator-filters button{padding:5px 9px;font-size:9px;letter-spacing:.1em}
+  .locator-card{padding:14px 18px}
+  .locator-card-name{font-size:13px}
+  .locator-card-addr{font-size:12px}
+  .locator-card-meta{font-size:10px;flex-wrap:wrap;gap:8px}
+  .locator-map-wrap{height:55vh;min-height:380px}
+  .leaflet-popup-content{margin:10px;min-width:180px}
+  .foot-grid{grid-template-columns:1fr;gap:24px}
+}
 
 /* LIST PANE */
 .locator-list{background:var(--ink);border-right:1px solid var(--line);overflow-y:auto;display:flex;flex-direction:column}
@@ -211,19 +231,4 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
         <h4>Follow</h4>
         <ul>
           <li><a href="https://www.instagram.com/phatpanda/" target="_blank" rel="noopener">Instagram</a></li>
-          <li><a href="https://www.facebook.com/phatpandastore/" target="_blank" rel="noopener">Facebook</a></li>
-          <li><a href="https://twitter.com/phatpanda" target="_blank" rel="noopener">X / Twitter</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="foot-legal">
-      <p><strong>Warning:</strong> For use only by adults 21 and older. Keep out of reach of children.</p>
-      <p>© <span id="yr">2026</span> Phat Panda LLC · License # C12-0000319-LIC</p>
-    </div>
-  </div>
-</footer>
-
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-<script src="/assets/js/retailers.js" defer></script>
-<script>document.getElementById('yr').textContent=new Date().getFullYear();
-document.getElementById('burger')?.addEventListener('click',()=>{document.getElementById('na
+          <li><a

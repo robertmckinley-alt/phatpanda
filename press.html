@@ -112,6 +112,30 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 .foot ul a:hover{color:var(--green)}
 .foot-legal{border-top:1px solid var(--line);padding:18px 0;font-size:11px;color:rgba(255,255,255,.4);line-height:1.7}
 @media(max-width:880px){.foot-grid{grid-template-columns:1fr 1fr;gap:32px}}
+@media(max-width:680px){
+  .nav{padding:16px 20px}
+  .wrap{padding:0 20px}
+  .hero{padding:60px 0 50px}
+  .hero h1{font-size:clamp(40px,11vw,64px);line-height:.92}
+  .hero p{font-size:15px}
+  .hero-actions{flex-direction:column}
+  .hero-actions .btn{width:100%;justify-content:center;padding:14px 20px}
+  .section{padding:60px 0}
+  .section h2{font-size:clamp(28px,7vw,42px)}
+  .section .lede{font-size:15px;margin-bottom:36px}
+  .founder{padding:24px}
+  .founder-photo{font-size:48px}
+  .founder h3{font-size:22px}
+  .founder-bio{font-size:14px}
+  .facts{gap:12px}
+  .fact{padding:20px}
+  .fact-num{font-size:36px}
+  .assets-grid{gap:10px}
+  .asset{padding:22px}
+  .contact-band{padding:60px 20px}
+  .contact-band h2{font-size:clamp(32px,9vw,48px)}
+  .contact-band a{padding:14px 24px}
+}
 </style>
 </head>
 <body>
@@ -146,22 +170,26 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
   <div class="wrap">
     <p class="section-eyebrow">— The founders</p>
     <h2>Built by <em>two people.</em></h2>
-    <p class="lede">Rob and Katrina McKinley founded Phat Panda in 2014 with a shared bet: cannabis quality and cannabis scale aren't mutually exclusive. A decade in, the original 30-person crew has grown to 550+ employees across three states.</p>
+    <p class="lede">Katrina and Rob McKinley founded Phat Panda in 2014 with a shared bet: cannabis quality and cannabis scale aren't mutually exclusive. A decade in, the original 30-person crew has grown to 550+ employees across three states.</p>
 
     <div class="founders">
       <article class="founder">
-        <div class="founder-photo">RM</div>
-        <h3>Rob McKinley</h3>
+        <div class="founder-photo" style="background:#000;padding:0;overflow:hidden">
+          <img src="/assets/img/founders/katrina.jpg" alt="Katrina McKinley" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display='none';this.parentElement.innerHTML='KM';this.parentElement.style.color='var(--green)';this.parentElement.style.background='linear-gradient(135deg,#000,#1a1a1a)';this.parentElement.style.padding='24px';">
+        </div>
+        <h3>Katrina McKinley</h3>
         <p class="founder-title">Co-Founder &amp; CEO</p>
-        <p class="founder-bio">Rob is the co-founder and operating force behind Phat Panda and Grow Op Farms, Washington's #1-selling Tier 3 cannabis producer. He has been named to the <em>Green Entrepreneur Cannabis 100</em> and <em>High Times 100 Most Influential People in Cannabis</em>, and led the company through Cannabis Cup, DOPE Cup, and Inlander Best of NW wins.</p>
-        <p class="founder-bio">Before cannabis, Rob ran multi-state operations across hospitality and consumer goods. He brings that operator's lens to a notoriously fragmented industry — pairing craft cultivation with proprietary seed-to-sale technology, in-house extraction, and an in-house edibles kitchen.</p>
+        <p class="founder-bio">Katrina is the co-founder and Chief Executive of Phat Panda. She's the architect of the company's brand world — from the original wordmark to the entire sub-brand family (Dabstract, Hot Sugar, Bangers, Snickle Fritz, Cake House, Kandy Shoppe, and more) — and steers the operation through multi-state expansion, regulatory shifts, and a quickly-changing industry.</p>
+        <p class="founder-bio">She's been featured in <em>Cannabis Business Times'</em> founders profile and is a frequent voice on the operational and cultural challenges of scaling a cannabis company while keeping family-business DNA intact.</p>
       </article>
       <article class="founder">
-        <div class="founder-photo" style="background:linear-gradient(135deg,#000,#1a1a1a);color:var(--green)">KM</div>
-        <h3>Katrina McKinley</h3>
+        <div class="founder-photo" style="background:#000;padding:0;overflow:hidden">
+          <img src="/assets/img/founders/rob.jpg" alt="Rob McKinley" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display='none';this.parentElement.innerHTML='RM';this.parentElement.style.color='#000';this.parentElement.style.background='linear-gradient(135deg,var(--green-dark),var(--green))';this.parentElement.style.padding='24px';">
+        </div>
+        <h3>Rob McKinley</h3>
         <p class="founder-title">Co-Founder</p>
-        <p class="founder-bio">Katrina is the co-founder of Phat Panda and the architect of the company's brand world — from the original wordmark to the entire sub-brand family (Dabstract, Hot Sugar, Bangers, Snickle Fritz, Cake House, Kandy Shoppe, and more).</p>
-        <p class="founder-bio">She's been featured in <em>Cannabis Business Times'</em> founders profile and is a frequent voice on the operational and cultural challenges of scaling a cannabis company while maintaining family-business DNA.</p>
+        <p class="founder-bio">Rob is the co-founder and operating force behind Phat Panda and Grow Op Farms, Washington's #1-selling Tier 3 cannabis producer. He has been named to the <em>Green Entrepreneur Cannabis 100</em> and <em>High Times 100 Most Influential People in Cannabis</em>, and helped lead the company through Cannabis Cup, DOPE Cup, and Inlander Best of NW wins.</p>
+        <p class="founder-bio">Before cannabis, Rob ran multi-state operations across hospitality and consumer goods. He brings that operator's lens to a notoriously fragmented industry — pairing craft cultivation with the Bamboo seed-to-sale platform, in-house extraction, and an in-house edibles kitchen.</p>
       </article>
     </div>
   </div>
@@ -262,42 +290,4 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
     <div class="foot-grid">
       <div>
         <a href="/" class="foot-logo"><img src="https://phatpanda.com/assets/img/logos/PP-WhiteGreen-Wide.svg" alt="Phat Panda"></a>
-        <p style="color:rgba(255,255,255,.55);max-width:300px;font-size:14px">Premium Washington cannabis since 2014.</p>
-      </div>
-      <div>
-        <h4>Visit</h4>
-        <address style="font-style:normal;color:rgba(255,255,255,.65);font-size:13px;line-height:1.6">2611 N Woodruff Rd<br>Spokane Valley, WA 99206</address>
-      </div>
-      <div>
-        <h4>Explore</h4>
-        <ul>
-          <li><a href="/#story">About</a></li>
-          <li><a href="/#brands">Brands</a></li>
-          <li><a href="/retailers.html">Find Us</a></li>
-          <li><a href="/news/">News</a></li>
-          <li><a href="/press.html">Press</a></li>
-          <li><a href="/careers.html">Careers</a></li>
-          <li><a href="/contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Follow</h4>
-        <ul>
-          <li><a href="https://www.instagram.com/phatpanda/" target="_blank" rel="noopener">Instagram</a></li>
-          <li><a href="https://twitter.com/phatpanda" target="_blank" rel="noopener">X / Twitter</a></li>
-          <li><a href="https://www.youtube.com/channel/UCqo7FtH5laZXTYvu8_jVYcw" target="_blank" rel="noopener">YouTube</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="foot-legal">
-      <p><strong>Warning:</strong> For use only by adults 21 and older. Keep out of reach of children.</p>
-      <p>© <span id="yr">2026</span> Phat Panda LLC · License # C12-0000319-LIC</p>
-    </div>
-  </div>
-</footer>
-
-<script>document.getElementById('yr').textContent=new Date().getFullYear();
-document.getElementById('burger')?.addEventListener('click',()=>{document.getElementById('nav-links').classList.toggle('is-open')});
-</script>
-</body>
-</html>
+        <p 
