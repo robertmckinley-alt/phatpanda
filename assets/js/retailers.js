@@ -30,8 +30,7 @@
 
   function init(){
     if (typeof L === 'undefined') { setTimeout(init, 200); return; }
-    map = L.map('map', { zoomControl: true, scrollWheelZoom: true })
-      .setView([47.5, -120.5], 7);
+    map = L.map('map', { zoomControl: true, scrollWheelZoom: true }).setView([47.5, -120.5], 7);
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
       attribution: '© <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors'
@@ -47,8 +46,8 @@
       })
       .catch(err => {
         console.error('Retailer load failed', err);
-        document.getElementById('results').innerHTML =
-          '<div class="locator-empty">Couldn\'t load retailers. Try refreshing the page.</div>';
+        var el = document.getElementById('results');
+        if (el) el.innerHTML = '<div class="locator-empty">Could not load retailers. Try refreshing the page.</div>';
       });
 
     document.getElementById('search').addEventListener('input', e => {
@@ -69,7 +68,7 @@
     return RETAILERS.filter(r => {
       if (activeRegion !== 'all' && r.region !== activeRegion) return false;
       if (!query) return true;
-      const hay = `${r.name} ${r.city || ''} ${r.zip || ''} ${r.address || ''}`.toLowerCase();
+      const hay = (r.name + ' ' + (r.city||'') + ' ' + (r.zip||'') + ' ' + (r.address||'')).toLowerCase();
       return hay.includes(query);
     });
   }
@@ -87,19 +86,17 @@
     root.innerHTML = list.map(r => {
       const hasCoords = r.lat && r.lng;
       const addr = r.address
-        ? `${escapeHtml(r.address)}<br>${escapeHtml(r.city || '')}${r.city ? ',' : ''} ${r.state} ${r.zip || ''}`.trim()
-        : r.city ? `${escapeHtml(r.city)}, ${r.state}` : `${r.state}`;
-      return `
-        <div class="locator-card${r.id === activeId ? ' is-active' : ''}${!hasCoords ? ' is-list-only' : ''}" data-id="${r.id}">
-          <h3 class="locator-card-name">${escapeHtml(r.name)}</h3>
-          <p class="locator-card-addr">${addr}</p>
-          <div class="locator-card-meta">
-            ${r.phone ? `<a href="tel:${r.phone.replace(/[^0-9+]/g,'')}">${escapeHtml(r.phone)}</a>` : ''}
-            ${r.website ? `<a href="${r.website}" target="_blank" rel="noopener">Website ↗</a>` : ''}
-            ${!hasCoords ? '<span style="color:rgba(255,255,255,.4)">📍 No map pin yet</span>' : ''}
-          </div>
-        </div>
-      `;
+        ? (escapeHtml(r.address) + '<br>' + escapeHtml(r.city || '') + (r.city ? ',' : '') + ' ' + r.state + ' ' + (r.zip || '')).trim()
+        : r.city ? (escapeHtml(r.city) + ', ' + r.state) : r.state;
+      return '<div class="locator-card' + (r.id === activeId ? ' is-active' : '') + (!hasCoords ? ' is-list-only' : '') + '" data-id="' + r.id + '">' +
+        '<h3 class="locator-card-name">' + escapeHtml(r.name) + '</h3>' +
+        '<p class="locator-card-addr">' + addr + '</p>' +
+        '<div class="locator-card-meta">' +
+          (r.phone ? '<a href="tel:' + r.phone.replace(/[^0-9+]/g,'') + '">' + escapeHtml(r.phone) + '</a>' : '') +
+          (r.website ? '<a href="' + r.website + '" target="_blank" rel="noopener">Website &#8599;</a>' : '') +
+          (!hasCoords ? '<span style="color:rgba(255,255,255,.4)">No map pin yet</span>' : '') +
+        '</div>' +
+      '</div>';
     }).join('');
 
     root.querySelectorAll('.locator-card').forEach(card => {
@@ -137,14 +134,12 @@
   }
 
   function popupHtml(r){
-    return `
-      <h4 class="popup-name">${escapeHtml(r.name)}</h4>
-      <p class="popup-addr">${escapeHtml(r.address || '')}${r.address ? '<br>' : ''}${escapeHtml(r.city || '')}${r.city ? ', ' : ''}${r.state} ${r.zip || ''}</p>
-      ${r.phone ? `<div class="popup-row">📞 <a href="tel:${r.phone.replace(/[^0-9+]/g,'')}">${escapeHtml(r.phone)}</a></div>` : ''}
-      ${r.hours ? `<div class="popup-row">🕐 ${escapeHtml(r.hours)}</div>` : ''}
-      ${r.website ? `<div class="popup-row"><a href="${r.website}" target="_blank" rel="noopener">Website ↗</a></div>` : ''}
-      <a class="popup-directions" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=${r.lat},${r.lng}">Get directions →</a>
-    `;
+    return '<h4 class="popup-name">' + escapeHtml(r.name) + '</h4>' +
+      '<p class="popup-addr">' + escapeHtml(r.address || '') + (r.address ? '<br>' : '') + escapeHtml(r.city || '') + (r.city ? ', ' : '') + r.state + ' ' + (r.zip || '') + '</p>' +
+      (r.phone ? '<div class="popup-row"><a href="tel:' + r.phone.replace(/[^0-9+]/g,'') + '">' + escapeHtml(r.phone) + '</a></div>' : '') +
+      (r.hours ? '<div class="popup-row">' + escapeHtml(r.hours) + '</div>' : '') +
+      (r.website ? '<div class="popup-row"><a href="' + r.website + '" target="_blank" rel="noopener">Website</a></div>' : '') +
+      '<a class="popup-directions" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=' + r.lat + ',' + r.lng + '">Get directions</a>';
   }
 
   function focusRetailer(id, fromMarker){
@@ -164,13 +159,21 @@
         if (m) setTimeout(() => m.openPopup(), 700);
       }
     } else {
-      const q = encodeURIComponent(`${r.name} ${r.city || ''} ${r.state} cannabis`);
-      window.open(`https://www.google.com/maps/search/?api=1&query=${q}`, '_blank', 'noopener');
+      const q = encodeURIComponent(r.name + ' ' + (r.city || '') + ' ' + r.state + ' cannabis');
+      window.open('https://www.google.com/maps/search/?api=1&query=' + q, '_blank', 'noopener');
     }
   }
 
   function escapeHtml(s){
-    return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    if (s == null) return '';
+    return String(s).replace(/[&<>"']/g, function(c){
+      return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c];
+    });
   }
 
-  if (d
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
