@@ -53,7 +53,22 @@ body{
   overflow-x:hidden;
   font-size:16px;
   line-height:1.55;
+  position:relative;
 }
+/* Big faint Phat Panda logo, fixed to viewport — parallax-style watermark behind everything */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:url('https://phatpanda.com/assets/img/logos/PP-WhiteGreen-Stacked.svg') center center / 70vmin no-repeat;
+  opacity:.05;
+  pointer-events:none;
+  z-index:0;
+  /* graceful fallback if the white-square variant isn't available */
+}
+/* keep all content above the watermark */
+.nav,.hero,.ticker,.story,.marquee,.brands,.awards,.press,.tech,.cta-band,.foot,.showcase,.totop,.bamboo-quote{position:relative;z-index:1}
+@media(max-width:680px){body::before{background-size:90vmin}}
 img,svg{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
@@ -707,14 +722,4 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
         <div class="bamboo-rotator-frame">
           <img class="bamboo-img is-active" data-img="trace" src="https://getbamboo.com/wp-content/uploads/2022/09/products-inventory-tablet.webp" alt="Bamboo Trace inventory dashboard" loading="lazy">
           <img class="bamboo-img" data-img="sales" src="https://getbamboo.com/wp-content/uploads/2024/04/Bamboo-Sales-Menu-1024x566.jpg" alt="Bamboo Sales menu" loading="lazy">
-          <img class="bamboo-img" data-img="smart" src="https://getbamboo.com/wp-content/uploads/2025/12/SmartCart.png" alt="Bamboo Smart Cart AI" loading="lazy">
-          <img class="bamboo-img" data-img="portal" src="https://getbamboo.com/wp-content/uploads/2022/09/products-macbook.webp" alt="Bamboo Portal interface" loading="lazy">
-        </div>
-        <div class="bamboo-rotator-dots">
-          <button class="bamboo-dot is-active" data-bt="trace" aria-label="Trace"></button>
-          <button class="bamboo-dot" data-bt="sales" aria-label="Sales"></button>
-          <button class="bamboo-dot" data-bt="smart" aria-label="Smart Cart"></button>
-          <button class="bamboo-dot" data-bt="portal" aria-label="Portal"></button>
-        </div>
-      </div>
-    <
+          <img class="bamboo-img" data-img="smart" src="https://getbamboo.com/wp-content/uploads/2025/12/Smart
