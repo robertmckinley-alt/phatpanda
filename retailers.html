@@ -89,6 +89,9 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 .locator-card{padding:18px 24px;border-bottom:1px solid var(--line);cursor:pointer;transition:background .2s;display:block}
 .locator-card:hover{background:rgba(114,188,68,.05)}
 .locator-card.is-active{background:rgba(114,188,68,.12);border-left:3px solid var(--green);padding-left:21px}
+.locator-card.is-list-only .locator-card-name{color:rgba(255,255,255,.85)}
+.locator-card.is-list-only::after{content:"↗";position:absolute;right:24px;top:18px;color:rgba(255,255,255,.3);font-size:12px}
+.locator-card{position:relative}
 .locator-card-name{font-family:var(--font-display);font-size:14px;letter-spacing:.02em;text-transform:uppercase;color:#fff;margin:0 0 6px}
 .locator-card-addr{font-size:13px;color:rgba(255,255,255,.7);line-height:1.5;margin:0 0 8px}
 .locator-card-meta{display:flex;gap:14px;font-size:11px;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.1em}

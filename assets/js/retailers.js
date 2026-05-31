@@ -85,16 +85,22 @@
       return;
     }
 
-    root.innerHTML = list.map(r => `
-      <div class="locator-card${r.id === activeId ? ' is-active' : ''}" data-id="${r.id}">
-        <h3 class="locator-card-name">${escapeHtml(r.name)}</h3>
-        <p class="locator-card-addr">${escapeHtml(r.address)}<br>${escapeHtml(r.city)}, ${r.state} ${r.zip}</p>
-        <div class="locator-card-meta">
-          ${r.phone ? `<a href="tel:${r.phone.replace(/[^0-9+]/g,'')}">${escapeHtml(r.phone)}</a>` : ''}
-          ${r.website ? `<a href="${r.website}" target="_blank" rel="noopener">Website ↗</a>` : ''}
+    root.innerHTML = list.map(r => {
+      const hasCoords = r.lat && r.lng;
+      const addr = r.address ? `${escapeHtml(r.address)}<br>${escapeHtml(r.city || '')}${r.city ? ',' : ''} ${r.state} ${r.zip || ''}`.trim()
+                  : r.city ? `${escapeHtml(r.city)}, ${r.state}` : `${r.state}`;
+      return `
+        <div class="locator-card${r.id === activeId ? ' is-active' : ''}${!hasCoords ? ' is-list-only' : ''}" data-id="${r.id}">
+          <h3 class="locator-card-name">${escapeHtml(r.name)}</h3>
+          <p class="locator-card-addr">${addr}</p>
+          <div class="locator-card-meta">
+            ${r.phone ? `<a href="tel:${r.phone.replace(/[^0-9+]/g,'')}">${escapeHtml(r.phone)}</a>` : ''}
+            ${r.website ? `<a href="${r.website}" target="_blank" rel="noopener">Website ↗</a>` : ''}
+            ${!hasCoords ? '<span style="color:rgba(255,255,255,.4)">📍 No map pin yet</span>' : ''}
+          </div>
         </div>
-      </div>
-    `).join('');
+      `;
+    }).join('');
 
     root.querySelectorAll('.locator-card').forEach(card => {
       card.addEventListener('click', () => {
@@ -146,19 +152,21 @@
     const r = RETAILERS.find(x => x.id === id);
     if (!r) return;
 
-    // Update list highlight
     document.querySelectorAll('.locator-card').forEach(c => {
       c.classList.toggle('is-active', +c.dataset.id === id);
       if (+c.dataset.id === id) c.scrollIntoView({behavior:'smooth', block:'nearest'});
     });
 
-    // Fly map + open popup
     if (r.lat && r.lng) {
       if (!fromMarker) {
         map.flyTo([r.lat, r.lng], 14, { duration: 0.6 });
         const m = markers.get(id);
         if (m) setTimeout(() => m.openPopup(), 700);
       }
+    } else {
+      // No coords — search Google Maps for it
+      const q = encodeURIComponent(`${r.name} ${r.city || ''} ${r.state} cannabis`);
+      window.open(`https://www.google.com/maps/search/?api=1&query=${q}`, '_blank', 'noopener');
     }
   }
 

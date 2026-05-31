@@ -298,7 +298,11 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 
 <a href="#main" class="skip-link">Skip to content</a>
 
-<!-- AGE GATE -->
+<!-- AGE GATE — DISABLED FOR PREVIEW.
+     To re-enable: uncomment the block below and remove the AGE_GATE_DISABLED constant in the script tag at bottom.
+     The current JS uses a 30-day cookie ("pp_age=1; max-age=2592000") + localStorage fallback,
+     so once a visitor passes once they won't see the modal again for 30 days. -->
+<!--
 <div id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-title">
   <div class="gate-card">
     <img src="https://phatpanda.com/assets/img/logos/PP-WhiteGreen-Wide.svg" alt="Phat Panda">
@@ -310,6 +314,7 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
     </div>
   </div>
 </div>
+-->
 
 <!-- NAV -->
 <nav class="nav" id="nav">
@@ -622,3 +627,129 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 
 <!-- CTA BAND -->
 <section class="cta-band">
+  <div class="wrap">
+    <h2>Join the <em>Panda family.</em></h2>
+    <p>550 team members. Three states. Real benefits, real growth tracks, free product samples every month. We hire growers, packagers, scientists, designers — and we treat them like family.</p>
+    <div class="cta-band-buttons">
+      <a href="/careers.html" class="a-primary">View open roles →</a>
+      <a href="/contact.html" class="a-ghost">Wholesale inquiries</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="/" class="foot-logo" aria-label="Phat Panda home"><img src="https://phatpanda.com/assets/img/logos/PP-WhiteGreen-Wide.svg" alt=""></a>
+        <p class="foot-tag">Premium Washington cannabis since 2014. Cultivated, extracted, packaged and shipped by the Panda family in Spokane Valley, WA.</p>
+      </div>
+      <div>
+        <h4>Visit</h4>
+        <address>2611 N Woodruff Rd<br>Spokane Valley, WA 99206</address>
+        <p style="font-size:12px;color:rgba(255,255,255,.45);margin-top:12px;">Employee verification only:<br><a href="tel:+15046122673" style="color:var(--green)">+1 (504) 612-2673</a></p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#story">About</a></li>
+          <li><a href="#brands">Brands</a></li>
+          <li><a href="/retailers.html">Find Us</a></li>
+          <li><a href="/news/">News</a></li>
+          <li><a href="/press.html">Press Kit</a></li>
+          <li><a href="#awards">Awards</a></li>
+          <li><a href="#tech">Technology</a></li>
+          <li><a href="/careers.html">Careers</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+          <li><a href="/brand-guide.html">Brand Guide</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/phatpanda/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.facebook.com/phatpandastore/" target="_blank" rel="noopener">Facebook</a></li>
+          <li><a href="https://twitter.com/phatpanda" target="_blank" rel="noopener">X / Twitter</a></li>
+          <li><a href="https://www.youtube.com/channel/UCqo7FtH5laZXTYvu8_jVYcw" target="_blank" rel="noopener">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-legal">
+      <p><strong>Warning:</strong> This product has intoxicating effects and may be habit forming. Cannabis can impair concentration, coordination, and judgment. Do not operate a vehicle or machinery under the influence. For use only by adults 21 and older. Keep out of reach of children.</p>
+      <p><strong>Licensee:</strong> CDXX Virtuosi Group, LLC · <strong>License Type:</strong> Microbusiness — Distribution, Level 1 Manufacturing, Cultivation, Nursery · <strong>License #:</strong> C12-0000319-LIC</p>
+      <p style="padding-top:12px;border-top:1px solid var(--line);margin-top:16px;">© <span id="yr">2026</span> Phat Panda LLC. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<a href="#top" class="totop" id="totop" aria-label="Back to top">↑</a>
+
+<script>
+(function(){
+  // Age gate — DISABLED. Flip this to true to re-enable. Cookie lasts 30 days once user accepts.
+  var AGE_GATE_DISABLED = true;
+  var K='pp_age';
+  function readCookie(name){ var m = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)')); return m ? m[1] : null; }
+  function writeCookie(name, val, days){ var d = new Date(); d.setTime(d.getTime() + days*86400000); document.cookie = name+'='+val+'; expires='+d.toUTCString()+'; path=/; SameSite=Lax'; }
+  var gate = document.getElementById('gate');
+  if (!AGE_GATE_DISABLED && gate) {
+    var passed = readCookie(K) || localStorage.getItem(K) || sessionStorage.getItem(K) || new URLSearchParams(location.search).has('skip');
+    if (passed) { gate.hidden = true; } else { document.body.style.overflow = 'hidden'; }
+    document.getElementById('g-yes')?.addEventListener('click', function(){
+      writeCookie(K, '1', 30); localStorage.setItem(K, '1');
+      gate.hidden = true; document.body.style.overflow = '';
+    });
+    document.getElementById('g-no')?.addEventListener('click', function(){ location.href = 'https://www.google.com'; });
+  }
+
+  // Nav scroll state + burger
+  var nav=document.getElementById('nav'),burger=document.getElementById('burger'),links=document.getElementById('nav-links'),totop=document.getElementById('totop');
+  window.addEventListener('scroll',function(){
+    var y=window.scrollY;
+    nav.classList.toggle('is-pinned',y>40);
+    totop.classList.toggle('is-on',y>600);
+  },{passive:true});
+  burger.onclick=function(){
+    var open=links.classList.toggle('is-open');
+    burger.classList.toggle('is-open',open);
+    burger.setAttribute('aria-expanded',open);
+  };
+  document.querySelectorAll('.nav-links a').forEach(function(a){
+    a.onclick=function(){links.classList.remove('is-open');burger.classList.remove('is-open')};
+  });
+
+  // Filter chips
+  var chips=document.querySelectorAll('.brands-filters button');
+  var cards=document.querySelectorAll('.brand-card');
+  chips.forEach(function(c){
+    c.onclick=function(){
+      chips.forEach(function(x){x.classList.remove('is-active')});
+      c.classList.add('is-active');
+      var f=c.dataset.f;
+      cards.forEach(function(card){
+        card.classList.toggle('is-hidden',f!=='all'&&card.dataset.cat!==f);
+      });
+    };
+  });
+
+  // Reveal on scroll
+  var rs=document.querySelectorAll('.story-grid,.brands-head,.brand-card,.award-row,.press-row,.tech-grid,.cta-band h2');
+  rs.forEach(function(el){el.classList.add('reveal')});
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target)}
+      });
+    },{threshold:.05,rootMargin:'0px 0px -8% 0px'});
+    rs.forEach(function(el){io.observe(el)});
+  }else{rs.forEach(function(el){el.classList.add('is-in')})}
+
+  // Year
+  document.getElementById('yr').textContent=new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
