@@ -721,4 +721,129 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
         <div class="bamboo-rotator-frame">
           <img class="bamboo-img is-active" data-img="trace" src="https://getbamboo.com/wp-content/uploads/2022/09/products-inventory-tablet.webp" alt="Bamboo Trace inventory dashboard" loading="lazy">
           <img class="bamboo-img" data-img="sales" src="https://getbamboo.com/wp-content/uploads/2024/04/Bamboo-Sales-Menu-1024x566.jpg" alt="Bamboo Sales menu" loading="lazy">
-          <img class="bamboo-img" data-img="smart" src="https://getbamboo.com/wp-content
+          <img class="bamboo-img" data-img="smart" src="https://getbamboo.com/wp-content/uploads/2025/12/SmartCart.png" alt="Bamboo Smart Cart AI" loading="lazy">
+          <img class="bamboo-img" data-img="portal" src="https://getbamboo.com/wp-content/uploads/2022/09/products-macbook.webp" alt="Bamboo Portal interface" loading="lazy">
+        </div>
+        <div class="bamboo-rotator-dots">
+          <button class="bamboo-dot is-active" data-bt="trace" aria-label="Trace"></button>
+          <button class="bamboo-dot" data-bt="sales" aria-label="Sales"></button>
+          <button class="bamboo-dot" data-bt="smart" aria-label="Smart Cart"></button>
+          <button class="bamboo-dot" data-bt="portal" aria-label="Portal"></button>
+        </div>
+      </div>
+    </div>
+    <div class="bamboo-quote">
+      <p>"Bamboo has helped streamline the sales operation, allowing my team and I to focus more on the branding and cultivation side of the business."</p>
+      <p class="bamboo-quote-attr">Rob McKinley · Co-Founder, Phat Panda</p>
+      <p class="bamboo-quote-note">Featured on the Bamboo homepage as America's Top Privately-Owned Cultivator.</p>
+    </div>
+  </div>
+</section>
+<script>
+(function(){
+  var tabs=document.querySelectorAll('.bamboo-tab, .bamboo-dot');
+  var imgs=document.querySelectorAll('.bamboo-img');
+  var panes=document.querySelectorAll('.bamboo-pane');
+  var content=document.querySelector('.bamboo-content');
+  var idx=0, keys=['trace','sales','smart','portal'], auto;
+  function show(k){
+    tabs.forEach(function(t){ t.classList.toggle('is-active', t.dataset.bt===k); });
+    imgs.forEach(function(im){ im.classList.toggle('is-active', im.dataset.img===k); });
+    panes.forEach(function(p){ p.hidden = p.dataset.pane!==k; });
+    if (content) content.dataset.active=k;
+    idx=keys.indexOf(k);
+  }
+  tabs.forEach(function(t){ t.addEventListener('click', function(){ show(t.dataset.bt); clearInterval(auto); auto=setInterval(rotate,5000); }); });
+  function rotate(){ idx=(idx+1)%keys.length; show(keys[idx]); }
+  auto=setInterval(rotate, 5000);
+})();
+</script>
+<section class="cta-band">
+  <div class="wrap">
+    <h2>Join the <em>Panda family.</em></h2>
+    <p>550 team members. Three states. Real benefits, real growth tracks, free product samples every month. We hire growers, packagers, scientists, designers — and we treat them like family.</p>
+    <div class="cta-band-buttons">
+      <a href="/careers.html" class="a-primary">View open roles →</a>
+      <a href="/contact.html" class="a-ghost">Wholesale inquiries</a>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="/" class="foot-logo"><img src="https://phatpanda.com/assets/img/logos/PP-WhiteGreen-Wide.svg" alt="Phat Panda"></a>
+        <p class="foot-tag">Premium Washington cannabis since 2014. Cultivated, extracted, packaged and shipped by the Panda family in Spokane Valley, WA.</p>
+      </div>
+      <div>
+        <h4>Visit</h4>
+        <address>2611 N Woodruff Rd<br>Spokane Valley, WA 99206</address>
+        <p style="font-size:12px;color:rgba(255,255,255,.45);margin-top:12px;">Employee verification only:<br><a href="tel:+15046122673" style="color:var(--green)">+1 (504) 612-2673</a></p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#story">About</a></li>
+          <li><a href="#brands">Brands</a></li>
+          <li><a href="/retailers.html">Find Us</a></li>
+          <li><a href="/news/">News</a></li>
+          <li><a href="/press.html">Press Kit</a></li>
+          <li><a href="#awards">Awards</a></li>
+          <li><a href="#tech">Technology</a></li>
+          <li><a href="/careers.html">Careers</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+          <li><a href="/brand-guide.html">Brand Guide</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <ul class="social">
+          <li><a href="https://www.instagram.com/phatpanda/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.facebook.com/phatpandastore/" target="_blank" rel="noopener">Facebook</a></li>
+          <li><a href="https://twitter.com/phatpanda" target="_blank" rel="noopener">X / Twitter</a></li>
+          <li><a href="https://www.youtube.com/channel/UCqo7FtH5laZXTYvu8_jVYcw" target="_blank" rel="noopener">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-legal">
+      <p><strong>Warning:</strong> This product has intoxicating effects and may be habit forming. Cannabis can impair concentration, coordination, and judgment. Do not operate a vehicle or machinery under the influence. For use only by adults 21 and older. Keep out of reach of children.</p>
+      <p><strong>Licensee:</strong> CDXX Virtuosi Group, LLC · <strong>License Type:</strong> Microbusiness — Distribution, Level 1 Manufacturing, Cultivation, Nursery · <strong>License #:</strong> C12-0000319-LIC</p>
+      <p style="padding-top:12px;border-top:1px solid var(--line);margin-top:16px;">© <span id="yr">2026</span> Phat Panda LLC. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+<a href="#top" class="totop" id="totop" aria-label="Back to top">↑</a>
+<script>
+(function(){
+  var nav=document.getElementById('nav'),burger=document.getElementById('burger'),links=document.getElementById('nav-links'),totop=document.getElementById('totop');
+  window.addEventListener('scroll', function(){
+    var y=window.scrollY;
+    nav && nav.classList.toggle('is-pinned', y>40);
+    totop && totop.classList.toggle('is-on', y>600);
+  }, {passive:true});
+  burger && burger.addEventListener('click', function(){
+    var open=links.classList.toggle('is-open');
+    burger.classList.toggle('is-open', open);
+  });
+  document.querySelectorAll('.nav-links a').forEach(function(a){
+    a.addEventListener('click', function(){ links.classList.remove('is-open'); burger && burger.classList.remove('is-open'); });
+  });
+  var chips=document.querySelectorAll('.brands-filters button');
+  var cards=document.querySelectorAll('.brand-card');
+  chips.forEach(function(c){
+    c.addEventListener('click', function(){
+      chips.forEach(function(x){ x.classList.remove('is-active'); });
+      c.classList.add('is-active');
+      var f=c.dataset.f;
+      cards.forEach(function(card){
+        card.classList.toggle('is-hidden', f!=='all' && card.dataset.cat!==f);
+      });
+    });
+  });
+  var yr=document.getElementById('yr');
+  if (yr) yr.textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
