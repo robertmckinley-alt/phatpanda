@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phat Panda — Premium Washington Cannabis | Spokane Valley, WA</title>
+<meta name="description" content="Phat Panda is a top-ranked Washington cannabis cultivator producing premium flower, concentrates, vapes, and edibles. Award-winning brands since 2014.">
+<link rel="canonical" href="https://phatpanda.com/">
+<meta name="theme-color" content="#000000">
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Phat Panda">
+<meta property="og:title" content="Phat Panda — Premium Washington Cannabis">
+<meta property="og:description" content="Award-winning cannabis cultivator. Family of brands. Since 2014.">
+<meta property="og:url" content="https://phatpanda.com/">
+<meta property="og:image" content="https://phatpanda.com/assets/img/logos/PP-BlackGreen-Square.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@phatpanda">
+
+<link rel="icon" type="image/svg+xml" href="https://phatpanda.com/assets/img/logos/PP-BlackGreen-Square.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://phatpanda.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;800;900&family=Archivo+Black&family=Inter:wght@300;400;500;600&family=Fraunces:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"Phat Panda","alternateName":"Grow Op Farms","url":"https://phatpanda.com","logo":"https://phatpanda.com/assets/img/logos/PP-BlackGreen-Square.svg","foundingDate":"2014","founders":[{"@type":"Person","name":"Robert McKinley"},{"@type":"Person","name":"Katrina McKinley"}],"address":{"@type":"PostalAddress","streetAddress":"2611 N Woodruff Rd","addressLocality":"Spokane Valley","addressRegion":"WA","postalCode":"99206-4138","addressCountry":"US"},"sameAs":["https://www.facebook.com/phatpandastore/","https://www.instagram.com/phatpanda/","https://twitter.com/phatpanda","https://www.youtube.com/channel/UCqo7FtH5laZXTYvu8_jVYcw"]}
+</script>
+
+<style>
+:root{
+  --green:#72BC44;
+  --green-2:#8FD45F;
+  --green-dark:#5DA035;
+  --ink:#0A0A0A;
+  --bone:#F4F1EA;
+  --paper:#FAF8F2;
+  --line:rgba(255,255,255,.12);
+  --line-dark:rgba(0,0,0,.12);
+  --font-display:"Archivo Black","Archivo",system-ui,sans-serif;
+  --font-sans:"Archivo","Inter",system-ui,sans-serif;
+  --font-serif:"Fraunces",Georgia,serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{margin:0;padding:0}
+body{
+  font-family:var(--font-sans);
+  background:var(--ink);
+  color:var(--bone);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  font-size:16px;
+  line-height:1.55;
+}
+img,svg{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+.wrap{max-width:1440px;margin:0 auto;padding:0 32px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.skip-link{position:absolute;left:-9999px;background:var(--green);color:#000;padding:12px 18px;z-index:9999;font-weight:600}
+.skip-link:focus{left:8px;top:8px}
+
+/* ─── AGE GATE ─── */
+#gate{position:fixed;inset:0;background:rgba(0,0,0,.96);backdrop-filter:blur(20px);z-index:9000;display:flex;align-items:center;justify-content:center;padding:24px;animation:fade .4s ease}
+#gate[hidden]{display:none}
+.gate-card{max-width:560px;width:100%;text-align:center;border:1px solid var(--line);padding:48px 36px;background:linear-gradient(180deg,#0c0c0c,#000)}
+.gate-card img{height:64px;margin:0 auto 24px}
+.gate-card h2{font-family:var(--font-display);font-size:clamp(28px,3.5vw,40px);letter-spacing:-.01em;margin:0 0 16px;text-transform:uppercase;line-height:1}
+.gate-card p{font-size:13px;color:rgba(255,255,255,.55);line-height:1.6;margin:0 0 32px}
+.gate-buttons{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.gate-buttons button{padding:18px 44px;font-family:var(--font-display);font-size:14px;text-transform:uppercase;letter-spacing:.1em;border-radius:0;transition:all .2s}
+.btn-enter{background:var(--green);color:#000}
+.btn-enter:hover{background:var(--green-2);transform:translateY(-2px)}
+.btn-leave{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.3)}
+.btn-leave:hover{background:#fff;color:#000}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+
+/* ─── NAV ─── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:80;padding:20px 32px;display:flex;align-items:center;justify-content:space-between;mix-blend-mode:difference;transition:background .3s}
+.nav.is-pinned{background:rgba(0,0,0,.85);backdrop-filter:blur(20px);mix-blend-mode:normal}
+.nav-logo{display:flex;align-items:center;gap:10px;color:#fff;font-family:var(--font-display);font-size:14px;letter-spacing:.04em;text-transform:uppercase}
+.nav-logo img{height:32px;width:auto}
+.nav-links{display:flex;gap:32px;align-items:center}
+.nav-links a{color:#fff;font-size:12px;text-transform:uppercase;letter-spacing:.15em;font-weight:500;position:relative}
+.nav-links a:hover{color:var(--green)}
+.nav-cta{background:var(--green);color:#000!important;padding:10px 20px;mix-blend-mode:normal;letter-spacing:.1em;font-weight:600;transition:background .2s}
+.nav-cta:hover{background:var(--green-2);color:#000!important}
+.nav-burger{display:none;width:36px;height:36px;flex-direction:column;justify-content:center;align-items:center;gap:5px}
+.nav-burger span{width:24px;height:1.5px;background:#fff;transition:transform .3s,opacity .3s}
+.nav-burger.is-open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.nav-burger.is-open span:nth-child(2){opacity:0}
+.nav-burger.is-open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+@media(max-width:900px){
+  .nav-burger{display:flex}
+  .nav-links{position:fixed;top:0;right:0;width:80vw;max-width:380px;height:100vh;background:#000;flex-direction:column;justify-content:center;align-items:flex-start;padding:40px;gap:24px;transform:translateX(100%);transition:transform .4s cubic-bezier(.7,0,.3,1);mix-blend-mode:normal}
+  .nav-links.is-open{transform:translateX(0)}
+  .nav-links a{font-size:24px;letter-spacing:.04em}
+  .nav-cta{margin-top:24px;padding:16px 32px}
+}
+
+/* ─── HERO ─── */
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:140px 0 80px;overflow:hidden;background:#000}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 30% 40%,rgba(114,188,68,.15),transparent 60%),radial-gradient(ellipse at 70% 80%,rgba(114,188,68,.08),transparent 70%);pointer-events:none}
+.hero-eyebrow{display:flex;align-items:center;gap:14px;font-size:11px;text-transform:uppercase;letter-spacing:.3em;color:rgba(255,255,255,.55);font-weight:500;margin-bottom:24px}
+.hero-eyebrow::before{content:"";width:32px;height:1px;background:var(--green)}
+.hero-mark{font-family:var(--font-display);font-size:clamp(72px,18vw,260px);line-height:.85;letter-spacing:-.04em;text-transform:uppercase;margin:0;color:#fff;position:relative}
+.hero-mark span{color:var(--green);font-style:italic;font-family:var(--font-serif);font-weight:400}
+.hero-meta{display:flex;justify-content:space-between;align-items:flex-end;margin-top:48px;flex-wrap:wrap;gap:32px}
+.hero-tagline{max-width:480px;font-size:18px;line-height:1.5;color:rgba(255,255,255,.75)}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+.hero-cta a{display:inline-flex;align-items:center;gap:10px;padding:18px 32px;font-family:var(--font-display);font-size:13px;text-transform:uppercase;letter-spacing:.12em;transition:all .25s}
+.hero-cta .a-primary{background:var(--green);color:#000}
+.hero-cta .a-primary:hover{background:var(--green-2);transform:translateY(-2px)}
+.hero-cta .a-ghost{border:1px solid rgba(255,255,255,.25);color:#fff}
+.hero-cta .a-ghost:hover{border-color:#fff;background:#fff;color:#000}
+.hero-scroll{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);font-size:10px;letter-spacing:.3em;color:rgba(255,255,255,.4);text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:8px}
+.hero-scroll::after{content:"";width:1px;height:36px;background:var(--green);animation:drop 2s infinite}
+@keyframes drop{0%,100%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1)}}
+
+/* ─── TICKER ─── */
+.ticker{background:var(--green);color:#000;padding:18px 0;overflow:hidden;border-top:1px solid #000;border-bottom:1px solid #000}
+.ticker-track{display:flex;gap:48px;white-space:nowrap;animation:scroll 50s linear infinite;font-family:var(--font-display);font-size:14px;letter-spacing:.15em;text-transform:uppercase}
+.ticker-track span{display:inline-flex;align-items:center;gap:48px}
+.ticker-track span::after{content:"✦";color:#000;opacity:.5}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ─── STORY ─── */
+.story{padding:160px 0;background:var(--ink);position:relative}
+.story-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:96px;align-items:start}
+.story-label{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--green);font-weight:500;margin-bottom:32px}
+.story h2{font-family:var(--font-display);font-size:clamp(36px,4.5vw,72px);line-height:.95;letter-spacing:-.02em;text-transform:uppercase;margin:0;color:#fff}
+.story h2 em{font-style:italic;font-family:var(--font-serif);color:var(--green);font-weight:400}
+.story-body p{font-size:18px;line-height:1.6;color:rgba(255,255,255,.7);margin:0 0 24px}
+.story-body p:first-child{font-size:22px;color:#fff;font-weight:400}
+.story-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:64px;padding-top:48px;border-top:1px solid var(--line)}
+.story-stat .num{font-family:var(--font-display);font-size:clamp(40px,5vw,72px);color:var(--green);line-height:1;letter-spacing:-.02em}
+.story-stat .lbl{font-size:12px;text-transform:uppercase;letter-spacing:.2em;color:rgba(255,255,255,.5);margin-top:12px}
+@media(max-width:880px){.story-grid{grid-template-columns:1fr;gap:48px}.story-stats{grid-template-columns:1fr 1fr}}
+
+/* ─── BRAND MARQUEE ─── */
+.marquee{padding:60px 0;background:var(--bone);color:#000;overflow:hidden;border-top:1px solid #000;border-bottom:1px solid #000}
+.marquee-label{text-align:center;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:#000;margin-bottom:32px;font-weight:500;opacity:.6}
+.marquee-track{display:flex;gap:80px;align-items:center;animation:scroll 40s linear infinite;width:max-content}
+.marquee-track img{height:48px;width:auto;filter:none;opacity:.85;transition:opacity .3s}
+.marquee-track img:hover{opacity:1}
+
+/* ─── HOUSE OF BRANDS ─── */
+.brands{padding:140px 0;background:var(--ink)}
+.brands-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:80px;flex-wrap:wrap;gap:32px}
+.brands-head h2{font-family:var(--font-display);font-size:clamp(40px,5vw,84px);line-height:.95;letter-spacing:-.02em;text-transform:uppercase;margin:0}
+.brands-head h2 em{font-style:italic;font-family:var(--font-serif);color:var(--green);font-weight:400}
+.brands-filters{display:flex;gap:8px;flex-wrap:wrap}
+.brands-filters button{padding:10px 18px;font-size:11px;text-transform:uppercase;letter-spacing:.15em;color:rgba(255,255,255,.6);border:1px solid var(--line);font-weight:500;transition:all .2s}
+.brands-filters button:hover{color:#fff;border-color:rgba(255,255,255,.4)}
+.brands-filters button.is-active{background:var(--green);color:#000;border-color:var(--green)}
+.brand-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+@media(max-width:1100px){.brand-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:760px){.brand-grid{grid-template-columns:repeat(2,1fr)}}
+.brand-card{position:relative;aspect-ratio:1;border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:32px;display:flex;flex-direction:column;justify-content:space-between;background:transparent;transition:background .3s,transform .3s;overflow:hidden;cursor:pointer}
+.brand-card::before{content:"";position:absolute;inset:0;background:var(--green);transform:translateY(101%);transition:transform .5s cubic-bezier(.7,0,.3,1);z-index:0}
+.brand-card:hover::before{transform:translateY(0)}
+.brand-card>*{position:relative;z-index:1;transition:color .35s}
+.brand-card:hover{color:#000}
+.brand-card.is-hidden{display:none}
+.brand-card-logo{flex:1;display:flex;align-items:center;justify-content:center;padding:16px 0;min-height:0}
+.brand-card-logo img{max-height:96px;max-width:80%;width:auto;height:auto;object-fit:contain;filter:invert(1);transition:filter .35s}
+.brand-card:hover .brand-card-logo img{filter:invert(0)}
+.brand-card-body{display:flex;justify-content:space-between;align-items:flex-end;gap:12px}
+.brand-card-name{font-family:var(--font-display);font-size:14px;letter-spacing:.05em;text-transform:uppercase}
+.brand-card-cat{font-size:10px;text-transform:uppercase;letter-spacing:.2em;color:rgba(255,255,255,.5);transition:color .35s}
+.brand-card:hover .brand-card-cat{color:rgba(0,0,0,.6)}
+.brand-card-arrow{position:absolute;top:24px;right:24px;font-size:14px;opacity:0;transform:translate(-8px,8px);transition:all .35s}
+.brand-card:hover .brand-card-arrow{opacity:1;transform:translate(0,0)}
+
+/* ─── AWARDS ─── */
+.awards{padding:140px 0;background:var(--bone);color:#000}
+.awards-head{margin-bottom:80px;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:32px}
+.awards-head h2{font-family:var(--font-display);font-size:clamp(40px,5vw,84px);line-height:.95;letter-spacing:-.02em;text-transform:uppercase;margin:0;color:#000}
+.awards-head h2 em{font-style:italic;font-family:var(--font-serif);color:var(--green-dark);font-weight:400}
+.awards-head p{max-width:380px;font-size:16px;color:rgba(0,0,0,.65);margin:0}
+.awards-list{border-top:1px solid #000}
+.award-row{display:grid;grid-template-columns:140px 1fr 1fr 60px;gap:32px;padding:32px 0;border-bottom:1px solid var(--line-dark);align-items:baseline;cursor:default;transition:padding .3s,background .3s}
+.award-row:hover{padding-left:24px;background:rgba(0,0,0,.03)}
+.award-year{font-family:var(--font-display);font-size:24px;color:#000;letter-spacing:-.01em}
+.award-name{font-family:var(--font-display);font-size:clamp(20px,2vw,30px);text-transform:uppercase;letter-spacing:-.01em;line-height:1.1}
+.award-desc{font-size:15px;color:rgba(0,0,0,.6)}
+.award-mark{font-size:22px;text-align:right;color:var(--green-dark);transition:transform .3s}
+.award-row:hover .award-mark{transform:translateX(6px)}
+@media(max-width:760px){.award-row{grid-template-columns:60px 1fr;gap:16px;padding:20px 0}.award-desc,.award-mark{display:none}.award-year{font-size:16px}.award-name{font-size:18px}}
+
+/* ─── PRESS ─── */
+.press{padding:140px 0;background:var(--ink)}
+.press-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:64px;flex-wrap:wrap;gap:32px}
+.press-head h2{font-family:var(--font-display);font-size:clamp(36px,4vw,64px);line-height:.95;letter-spacing:-.02em;text-transform:uppercase;margin:0}
+.press-head h2 em{font-style:italic;font-family:var(--font-serif);color:var(--green);font-weight:400}
+.press-list{border-top:1px solid var(--line)}
+.press-row{display:grid;grid-template-columns:240px 1fr 60px;gap:32px;padding:28px 0;border-bottom:1px solid var(--line);align-items:center;text-decoration:none;color:#fff;transition:padding .3s,background .3s}
+.press-row:hover{padding-left:24px;background:rgba(255,255,255,.03)}
+.press-pub{font-family:var(--font-display);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--green)}
+.press-title{font-size:clamp(16px,1.6vw,22px);line-height:1.3;font-weight:500}
+.press-arrow{font-size:20px;color:rgba(255,255,255,.4);text-align:right;transition:transform .3s,color .3s}
+.press-row:hover .press-arrow{color:var(--green);transform:translate(6px,-6px)}
+@media(max-width:760px){.press-row{grid-template-columns:1fr;gap:6px;padding:20px 0}.press-arrow{display:none}}
+
+/* ─── TECH ─── */
+.tech{padding:160px 0;background:var(--green);color:#000;overflow:hidden;position:relative}
+.tech::before{content:"PANDA TECHNOLOGY · PANDA TECHNOLOGY · PANDA TECHNOLOGY · ";position:absolute;top:40px;left:0;right:0;white-space:nowrap;font-family:var(--font-display);font-size:14vw;line-height:1;color:rgba(0,0,0,.06);letter-spacing:-.02em;animation:scroll 80s linear infinite;width:max-content;pointer-events:none}
+.tech-grid{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;padding-top:80px}
+.tech-label{font-size:11px;letter-spacing:.3em;text-transform:uppercase;font-weight:500;margin-bottom:24px}
+.tech h2{font-family:var(--font-display);font-size:clamp(40px,5vw,80px);line-height:.95;letter-spacing:-.02em;text-transform:uppercase;margin:0 0 32px;color:#000}
+.tech h2 em{font-style:italic;font-family:var(--font-serif);color:#fff;font-weight:400}
+.tech p{font-size:18px;line-height:1.6;color:rgba(0,0,0,.75);max-width:520px}
+.tech ul{list-style:none;padding:0;margin:32px 0;display:grid;gap:12px}
+.tech li{padding-left:28px;position:relative;font-weight:500;font-size:15px}
+.tech li::before{content:"→";position:absolute;left:0;color:#000;font-weight:700}
+.tech-cta{display:inline-flex;align-items:center;gap:10px;padding:18px 32px;background:#000;color:#fff;font-family:var(--font-display);font-size:13px;text-transform:uppercase;letter-spacing:.12em;transition:all .25s;margin-top:16px}
+.tech-cta:hover{background:#fff;color:#000}
+.tech-mock{background:#000;color:#fff;padding:32px;border:2px solid #000;box-shadow:24px 24px 0 rgba(0,0,0,.15)}
+.tech-mock-head{display:flex;justify-content:space-between;align-items:center;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:24px}
+.tech-mock-head strong{font-family:var(--font-display);font-size:13px;letter-spacing:.1em;text-transform:uppercase}
+.tech-mock-head span{font-size:11px;color:var(--green);letter-spacing:.15em;text-transform:uppercase}
+.tech-mock-rows{display:grid;gap:16px}
+.tech-mock-row{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px dashed rgba(255,255,255,.1);font-size:14px}
+.tech-mock-row strong{color:var(--green);font-family:var(--font-display);letter-spacing:.04em}
+.tech-mock-chart{display:flex;align-items:flex-end;gap:8px;height:120px;margin-top:24px}
+.tech-mock-chart i{flex:1;background:var(--green);display:block}
+@media(max-width:880px){.tech-grid{grid-template-columns:1fr;gap:48px}}
+
+/* ─── CTA BAND ─── */
+.cta-band{padding:140px 0;background:var(--ink);text-align:center;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.cta-band h2{font-family:var(--font-display);font-size:clamp(48px,7vw,120px);line-height:.9;letter-spacing:-.03em;text-transform:uppercase;margin:0 0 32px}
+.cta-band h2 em{font-style:italic;font-family:var(--font-serif);color:var(--green);font-weight:400}
+.cta-band p{font-size:18px;color:rgba(255,255,255,.6);max-width:540px;margin:0 auto 40px}
+.cta-band-buttons{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.cta-band-buttons a{padding:18px 36px;font-family:var(--font-display);font-size:13px;text-transform:uppercase;letter-spacing:.12em;transition:all .25s}
+.cta-band-buttons .a-primary{background:var(--green);color:#000}
+.cta-band-buttons .a-primary:hover{background:#fff;transform:translateY(-2px)}
+.cta-band-buttons .a-ghost{border:1px solid rgba(255,255,255,.25)}
+.cta-band-buttons .a-ghost:hover{border-color:var(--green);color:var(--green)}
+
+/* ─── FOOTER ─── */
+.foot{background:#000;padding:80px 0 0;color:#fff;border-top:1px solid var(--line)}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:64px}
+.foot-logo{display:flex;align-items:center;gap:12px;margin-bottom:24px}
+.foot-logo img{height:40px}
+.foot-logo span{font-family:var(--font-display);font-size:16px;letter-spacing:.04em;text-transform:uppercase}
+.foot-tag{color:rgba(255,255,255,.55);max-width:300px;font-size:14px;line-height:1.6}
+.foot h4{font-family:var(--font-display);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--green);margin:0 0 20px;font-weight:500}
+.foot ul{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.foot ul a{color:rgba(255,255,255,.65);font-size:14px;transition:color .2s}
+.foot ul a:hover{color:var(--green)}
+.foot address{font-style:normal;color:rgba(255,255,255,.65);font-size:14px;line-height:1.6}
+.foot-legal{border-top:1px solid var(--line);padding:24px 0;font-size:12px;color:rgba(255,255,255,.4);line-height:1.7}
+.foot-legal strong{color:rgba(255,255,255,.7);font-weight:500}
+.foot-legal p{margin:0 0 6px}
+@media(max-width:880px){.foot-grid{grid-template-columns:1fr 1fr;gap:32px}}
+@media(max-width:560px){.foot-grid{grid-template-columns:1fr}}
+
+/* ─── BACK TO TOP ─── */
+.totop{position:fixed;right:24px;bottom:24px;width:48px;height:48px;background:var(--green);color:#000;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:18px;opacity:0;transform:translateY(20px);transition:all .3s;z-index:50}
+.totop.is-on{opacity:1;transform:translateY(0)}
+.totop:hover{background:#fff;transform:translateY(-4px)}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)}
+.reveal.is-in{opacity:1;transform:translateY(0)}
+
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to content</a>
+
+<!-- AGE GATE -->
+<div id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-title">
+  <div class="gate-card">
+    <img src="https://phatpanda.com/assets/img/logos/PP-WhiteGreen-Wide.svg" alt="Phat Panda">
+    <h2 id="gate-title">You must be 21+</h2>
+    <p>By entering, you confirm you are 21 years of age or older. Cannabis products are intended for adult use only. This product has intoxicating effects and may be habit forming. WAC&nbsp;314-55-155(5)</p>
+    <div class="gate-buttons">
+      <button class="btn-enter" id="g-yes">I'm 21 or older — enter</button>
+      <button class="btn-leave" id="g-no">Exit</button>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a href="#top" class="nav-logo" aria-label="Phat Panda home">
+    <img src="https://phatpanda.com/assets/img/logos/PP-WhiteGreen-Wide.svg" alt="">
+  </a>
+  <button class="nav-burger" id="burger" aria-expanded="false" aria-label="Menu"><span></span><span></span><span></span></button>
+  <div class="nav-links" id="nav-links">
+    <a href="#story">About</a>
+    <a href="#brands">Brands</a>
+    <a href="#awards">Awards</a>
+    <a href="#press">Press</a>
+    <a href="#tech">Technology</a>
+    <a href="/careers.html">Careers</a>
+    <a href="https://phatpandastore.com/" target="_blank" rel="noopener" class="nav-cta">Shop&nbsp;→</a>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <p class="hero-eyebrow">Spokane Valley, WA · Est. 2014 · Now in WA, CA, MA</p>
+    <h1 class="hero-mark">PHAT<br>PA<span>n</span>DA</h1>
+    <div class="hero-meta">
+      <p class="hero-tagline">A vertically-integrated cannabis company growing award-winning flower, concentrates, vapes, and edibles for the Panda family — coast to coast.</p>
+      <div class="hero-cta">
+        <a href="#brands" class="a-primary">Meet the family →</a>
+        <a href="https://phatpandastore.com/" target="_blank" rel="noopener" class="a-ghost">Shop now</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll" aria-hidden="true">Scroll</div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>#1 Washington Producer</span><span>DOPE Cup Winner</span><span>High Times Cannabis Cup</span><span>550+ Team Members</span><span>3 States &amp; Growing</span><span>12 Brands</span><span>Since 2014</span><span>Inlander Best of NW</span>
+    <span>#1 Washington Producer</span><span>DOPE Cup Winner</span><span>High Times Cannabis Cup</span><span>550+ Team Members</span><span>3 States &amp; Growing</span><span>12 Brands</span><span>Since 2014</span><span>Inlander Best of NW</span>
+  </div>
+</div>
+
+<!-- STORY -->
+<section class="story" id="story">
+  <div class="wrap">
+    <div class="story-grid">
+      <div>
+        <p class="story-label">— Who we are</p>
+        <h2>From a 30-Panda crew to a <em>family of 550+.</em></h2>
+      </div>
+      <div class="story-body">
+        <p>Phat Panda was founded in 2014 by Robert and Katrina McKinley with a simple mission — bring the highest-quality, most affordable cannabis to market by combining advanced cultivation with state-of-the-art technology.</p>
+        <p>A decade later, we're the parent of a multi-state family of brands, recognized as one of the top cannabis producers in the Pacific Northwest, and home to one of the most loyal customer bases in the industry. We grow, extract, package, and ship every product under one roof — built by people who actually use what they make.</p>
+        <p>This is craft, at scale.</p>
+      </div>
+    </div>
+    <div class="story-stats">
+      <div class="story-stat"><div class="num">2014</div><div class="lbl">Founded</div></div>
+      <div class="story-stat"><div class="num">550+</div><div class="lbl">Team members</div></div>
+      <div class="story-stat"><div class="num">3</div><div class="lbl">States &amp; growing</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee" aria-hidden="true">
+  <p class="marquee-label">— The Phat Panda family —</p>
+  <div class="marquee-track">
+    <img src="https://phatpanda.com/assets/img/logos/PP-BlackGreen-Wide.svg" alt="Phat Panda">
+    <img src="https://phatpanda.com/assets/img/logos/sub-brands/Dabstract%20Black.svg" alt="Dabstract">
+    <img src="https://phatpanda.com/assets/img/logos/sub-brands/Hot%20Sugar%20Black.svg" alt="Hot Sugar">
+    <img src="https://phatpanda.com/assets/img/logos/sub-brands/SnickleFritz%20-%20Black.svg" alt="Snickle Fritz">
+    <img src="https://phatpanda.com/assets/img/logos/sub-brands/Panda%20Pen%20Black.svg" alt="Panda Pen">
+    <img src="https://phatpanda.com/assets/img/logos/sub-brands/Bangers%20Black.svg" alt="Bangers">
+    <img src="https://phatpanda.com/assets/img/logos/sub-brands/Juice%20Box%20Full%20Color.svg" alt="Juice Box">
+    <img src="https://phatpanda.com/assets/img/logos/sub-brands/cakehouse-stacked-004.svg" alt="Cake House">
+    <img src="https://phatpanda.com/assets/img/logos/sub-brands/Kandy%20Shoppe%20Logo.svg" alt="Kandy Shoppe">
+    <img src="https://phatpanda.com/assets/img/logos/sub-brands/Firecracker%20Full%20Color.svg" alt="Firecracker">
+    <img src="https://phatpanda.com/assets/img/logos/sub-brands/Hotshotz%20Black.svg" alt="Hot Shotz">
+    <img src="https://phatpanda.com/assets/img/logos/sub-brands/28Eluzion%20Blue.png" alt="Eluzion">
+    <!-- duplicate set for seamless loop -->
+    <img src="https://phatpanda.com/assets/img/logos/PP-BlackGreen-Wide.svg" alt="">
+    <img src="https://phatpanda.com/assets/img/logos/sub-brands/Dabstract%20Black.svg" alt="">
+    <img src="https://phatpanda.com/assets/img/logos/sub-brands/Hot%20Sugar%20Black.svg" alt="">
+    <img src="https://phatpanda.com/assets/img/logos/sub-brands/SnickleFritz%20-%20Black.svg" alt="">
+    <img src="https://phatpanda.com/assets/img/logos/sub-brands/Panda%20Pen%20Black.svg" alt="">
+    <img src="https://phatpanda.com/assets/img/logos/sub-brands/Bangers%20Black.svg" alt="">
+    <img src="https://phatpanda.com/assets/img/logos/sub-brands/Juice%20Box%20Full%20Color.svg" alt="">
+    <img src="https://phatpanda.com/assets/img/logos/sub-brands/cakehouse-stacked-004.svg" alt="">
+    <img src="https://phatpanda.com/assets/img/logos/sub-brands/Kandy%20Shoppe%20Logo.svg" alt="">
+    <img src="https://phatpanda.com/assets/img/logos/sub-brands/Firecracker%20Full%20Color.svg" alt="">
+    <img src="https://phatpanda.com/assets/img/logos/sub-brands/Hotshotz%20Black.svg" alt="">
+    <img src="https://phatpanda.com/assets/img/logos/sub-brands/28Eluzion%20Blue.png" alt="">
+  </div>
+</div>
+
+<!-- HOUSE OF BRANDS -->
+<section class="brands" id="brands">
+  <div class="wrap">
+    <div class="brands-head">
+      <h2>A house of <em>brands.</em></h2>
+      <div class="brands-filters" role="tablist">
+        <button class="is-active" data-f="all">All</button>
+        <button data-f="flower">Flower</button>
+        <button data-f="concentrate">Concentrates</button>
+        <button data-f="vape">Vapes</button>
+        <button data-f="edible">Edibles</button>
+        <button data-f="preroll">Pre-Rolls</button>
+      </div>
+    </div>
+    <div class="brand-grid" id="brand-grid">
+      <article class="brand-card" data-cat="flower">
+        <span class="brand-card-arrow">↗</span>
+        <div class="brand-card-logo"><img src="https://phatpanda.com/assets/img/logos/PP-BlackGreen-Square.svg" alt="Phat Panda"></div>
+        <div class="brand-card-body"><span class="brand-card-name">Phat Panda</span><span class="brand-card-cat">Flower</span></div>
+      </article>
+      <article class="brand-card" data-cat="concentrate">
+        <span class="brand-card-arrow">↗</span>
+        <div class="brand-card-logo"><img src="https://phatpanda.com/assets/img/logos/sub-brands/Dabstract%20Black.svg" alt="Dabstract"></div>
+        <div class="brand-card-body"><span class="brand-card-name">Dabstract</span><span class="brand-card-cat">Concentrate</span></div>
+      </article>
+      <article class="brand-card" data-cat="edible">
+        <span class="brand-card-arrow">↗</span>
+        <div class="brand-card-logo"><img src="https://phatpanda.com/assets/img/logos/sub-brands/Hot%20Sugar%20Black.svg" alt="Hot Sugar"></div>
+        <div class="brand-card-body"><span class="brand-card-name">Hot Sugar</span><span class="brand-card-cat">Edible</span></div>
+      </article>
+      <article class="brand-card" data-cat="vape">
+        <span class="brand-card-arrow">↗</span>
+        <div class="brand-card-logo"><img src="https://phatpanda.com/assets/img/logos/sub-brands/Panda%20Pen%20Black.svg" alt="Panda Pen"></div>
+        <div class="brand-card-body"><span class="brand-card-name">Panda Pen</span><span class="brand-card-cat">Vape</span></div>
+      </article>
+      <article class="brand-card" data-cat="preroll">
+        <span class="brand-card-arrow">↗</span>
+        <div class="brand-card-logo"><img src="https://phatpanda.com/assets/img/logos/sub-brands/Bangers%20Black.svg" alt="Bangers"></div>
+        <div class="brand-card-body"><span class="brand-card-name">Bangers</span><span class="brand-card-cat">Pre-Roll</span></div>
+      </article>
+      <article class="brand-card" data-cat="edible">
+        <span class="brand-card-arrow">↗</span>
+        <div class="brand-card-logo"><img src="https://phatpanda.com/assets/img/logos/sub-brands/Juice%20Box%20Full%20Color.svg" alt="Juice Box"></div>
+        <div class="brand-card-body"><span class="brand-card-name">Juice Box</span><span class="brand-card-cat">Edible</span></div>
+      </article>
+      <article class="brand-card" data-cat="edible">
+        <span class="brand-card-arrow">↗</span>
+        <div class="brand-card-logo"><img src="https://phatpanda.com/assets/img/logos/sub-brands/cakehouse-stacked-004.svg" alt="Cake House"></div>
+        <div class="brand-card-body"><span class="brand-card-name">Cake House</span><span class="brand-card-cat">Edible</span></div>
+      </article>
+      <article class="brand-card" data-cat="edible">
+        <span class="brand-card-arrow">↗</span>
+        <div class="brand-card-logo"><img src="https://phatpanda.com/assets/img/logos/sub-brands/Kandy%20Shoppe%20Logo.svg" alt="Kandy Shoppe"></div>
+        <div class="brand-card-body"><span class="brand-card-name">Kandy Shoppe</span><span class="brand-card-cat">Edible</span></div>
+      </article>
+      <article class="brand-card" data-cat="flower">
+        <span class="brand-card-arrow">↗</span>
+        <div class="brand-card-logo"><img src="https://phatpanda.com/assets/img/logos/sub-brands/SnickleFritz%20-%20Black.svg" alt="Snickle Fritz"></div>
+        <div class="brand-card-body"><span class="brand-card-name">Snickle Fritz</span><span class="brand-card-cat">Flower</span></div>
+      </article>
+      <article class="brand-card" data-cat="vape">
+        <span class="brand-card-arrow">↗</span>
+        <div class="brand-card-logo"><img src="https://phatpanda.com/assets/img/logos/sub-brands/Hotshotz%20Black.svg" alt="Hot Shotz"></div>
+        <div class="brand-card-body"><span class="brand-card-name">Hot Shotz</span><span class="brand-card-cat">Vape</span></div>
+      </article>
+      <article class="brand-card" data-cat="vape">
+        <span class="brand-card-arrow">↗</span>
+        <div class="brand-card-logo"><img src="https://phatpanda.com/assets/img/logos/sub-brands/28Eluzion%20Blue.png" alt="Eluzion"></div>
+        <div class="brand-card-body"><span class="brand-card-name">Eluzion</span><span class="brand-card-cat">Vape</span></div>
+      </article>
+      <article class="brand-card" data-cat="preroll">
+        <span class="brand-card-arrow">↗</span>
+        <div class="brand-card-logo"><img src="https://phatpanda.com/assets/img/logos/sub-brands/Firecracker%20Full%20Color.svg" alt="Firecracker"></div>
+        <div class="brand-card-body"><span class="brand-card-name">Firecracker</span><span class="brand-card-cat">Pre-Roll</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- AWARDS -->
+<section class="awards" id="awards">
+  <div class="wrap">
+    <div class="awards-head">
+      <h2>The work <em>speaks for itself.</em></h2>
+      <p>From the DOPE Cup to High Times Cannabis Cup, a decade of recognition across categories, regions, and reader-voted lists.</p>
+    </div>
+    <div class="awards-list">
+      <div class="award-row"><div class="award-year">2024</div><div class="award-name">#1 WA Producer</div><div class="award-desc">Top-selling Tier 3 producer · BDS / Headset rankings</div><div class="award-mark">→</div></div>
+      <div class="award-row"><div class="award-year">2020</div><div class="award-name">Inlander Best of NW</div><div class="award-desc">Best Cannabis Brand · Reader-voted, Spokane region</div><div class="award-mark">→</div></div>
+      <div class="award-row"><div class="award-year">2019</div><div class="award-name">High Times Cannabis Cup</div><div class="award-desc">Seattle · 1st place Vape Pens (Dabstract Orange Zkittlez)</div><div class="award-mark">→</div></div>
+      <div class="award-row"><div class="award-year">2019</div><div class="award-name">Seattle Cannabis Cup</div><div class="award-desc">3rd place Non-Solvent Hash · Point Break Live Rosin</div><div class="award-mark">→</div></div>
+      <div class="award-row"><div class="award-year">2018</div><div class="award-name">DOPE Cup Washington</div><div class="award-desc">Best Infused Pre-Roll · Most Potent Flower (GMO)</div><div class="award-mark">→</div></div>
+      <div class="award-row"><div class="award-year">2018</div><div class="award-name">DOPE Cup — Dabstract</div><div class="award-desc">6 placements including 1st THC Distillate and 1st Live Resin</div><div class="award-mark">→</div></div>
+      <div class="award-row"><div class="award-year">2018</div><div class="award-name">Green Entrepreneur 100</div><div class="award-desc">Cannabis Leaders list · Rob McKinley named to inaugural class</div><div class="award-mark">→</div></div>
+      <div class="award-row"><div class="award-year">2018</div><div class="award-name">High Times 100</div><div class="award-desc">Most Influential People in Cannabis</div><div class="award-mark">→</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRESS -->
+<section class="press" id="press">
+  <div class="wrap">
+    <div class="press-head">
+      <h2>In the <em>press.</em></h2>
+    </div>
+    <div class="press-list">
+      <a class="press-row" href="https://hightimes.com/culture/the-winners-of-the-high-times-100/" target="_blank" rel="noopener">
+        <div class="press-pub">High Times</div><div class="press-title">The 100 Most Influential People in Cannabis</div><div class="press-arrow">↗</div>
+      </a>
+      <a class="press-row" href="https://www.cannabisbusinesstimes.com/packaging-branding/marketing-your-cannabis-business/news/15703496/phat-pandas-co-founders-share-how-they-got-to-no-1-in-washingtons-marijuana-marketplace" target="_blank" rel="noopener">
+        <div class="press-pub">Cannabis Business Times</div><div class="press-title">Co-Founders Share How They Got to No. 1 in Washington</div><div class="press-arrow">↗</div>
+      </a>
+      <a class="press-row" href="https://mgretailer.com/business/growing-horticulture/phat-panda-has-created-the-perfect-marijuana-strain-factory/" target="_blank" rel="noopener">
+        <div class="press-pub">MG Retailer</div><div class="press-title">Phat Panda Has Created the Perfect Marijuana Strain Factory</div><div class="press-arrow">↗</div>
+      </a>
+      <a class="press-row" href="https://www.spokesman.com/stories/2018/apr/20/grow-op-farms-in-spokane-valley-expanding-its-alre/" target="_blank" rel="noopener">
+        <div class="press-pub">The Spokesman-Review</div><div class="press-title">Grow Op Farms expanding its already-huge cannabis business</div><div class="press-arrow">↗</div>
+      </a>
+      <a class="press-row" href="https://www.marijuanaventure.com/panda-monium/" target="_blank" rel="noopener">
+        <div class="press-pub">Marijuana Venture</div><div class="press-title">Panda-Monium: Washington's First Million-Dollar Month</div><div class="press-arrow">↗</div>
+      </a>
+      <a class="press-row" href="https://www.cannabistech.com/articles/inside-phat-panda/" target="_blank" rel="noopener">
+        <div class="press-pub">Cannabis Tech</div><div class="press-title">Inside Phat Panda — A Sophisticated Seed-to-Sale Operation</div><div class="press-arrow">↗</div>
+      </a>
+      <a class="press-row" href="https://seattlehashtag.com/blog/2021/9/22/know-your-grower-phat-panda" target="_blank" rel="noopener">
+        <div class="press-pub">Hashtag Cannabis</div><div class="press-title">Know Your Grower: Phat Panda</div><div class="press-arrow">↗</div>
+      </a>
+      <a class="press-row" href="https://www.youtube.com/watch?v=vWxKpn-pNRo" target="_blank" rel="noopener">
+        <div class="press-pub">Canna Cribs</div><div class="press-title">Inside a 60,000 Sq Ft Grow Op Farms Facility Tour</div><div class="press-arrow">↗</div>
+      </a>
+      <a class="press-row" href="https://www.newcannabisventures.com/washingtons-top-selling-producer-grow-op-farms-has-been-selling-phat-panda-products-like-crazy-and-could-have-the-states-first-1-million-month/" target="_blank" rel="noopener">
+        <div class="press-pub">New Cannabis Ventures</div><div class="press-title">Washington's Top-Selling Producer</div><div class="press-arrow">↗</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- TECH -->
+<section class="tech" id="tech">
+  <div class="wrap">
+    <div class="tech-grid">
+      <div>
+        <p class="tech-label">— Panda Technology</p>
+        <h2>We built our own <em>seed-to-sale stack.</em></h2>
+        <p>The tools the industry shipped were clunky and slow. So we built our own — and over two years of in-house engineering, the Panda Portal became the system we wished existed. Now licensed to select cultivators in WA and CA.</p>
+        <ul>
+          <li>Fully customizable CRM</li>
+          <li>Real-time live inventory</li>
+          <li>Reporting &amp; analytics</li>
+          <li>Wholesale marketplace</li>
+          <li>Seed-to-sale traceability</li>
+        </ul>
+        <a href="/contact.html" class="tech-cta">Inquire about licensing →</a>
+      </div>
+      <div class="tech-mock">
+        <div class="tech-mock-head"><strong>Panda Portal</strong><span>● Live</span></div>
+        <div class="tech-mock-rows">
+          <div class="tech-mock-row"><span>Live inventory</span><strong>14,328 u</strong></div>
+          <div class="tech-mock-row"><span>Open orders</span><strong>92</strong></div>
+          <div class="tech-mock-row"><span>Active SKUs</span><strong>418</strong></div>
+          <div class="tech-mock-row"><span>This week revenue</span><strong>$847k</strong></div>
+        </div>
+        <div class="tech-mock-chart"><i style="height:45%"></i><i style="height:78%"></i><i style="height:62%"></i><i style="height:91%"></i><i style="height:55%"></i><i style="height:84%"></i><i style="height:70%"></i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band">
+  <div class="wrap">
+    <h2>Join the <em>Panda family.</em></h2>
+    <p>550 team members. Three states. Real benefits, real growth tracks, free product samples every month. We hire growers, packagers, scientists, designers — and we treat them like family.</p>
+    <div class="cta-band-buttons">
+      <a href="/careers.html" class="a-primary">View open roles →</a>
+      <a href="/contact.html" class="a-ghost">Wholesale inquiries</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="/" class="foot-logo" aria-label="Phat Panda home"><img src="https://phatpanda.com/assets/img/logos/PP-WhiteGreen-Wide.svg" alt=""></a>
+        <p class="foot-tag">Premium Washington cannabis since 2014. Cultivated, extracted, packaged and shipped by the Panda family in Spokane Valley, WA.</p>
+      </div>
+      <div>
+        <h4>Visit</h4>
+        <address>2611 N Woodruff Rd<br>Spokane Valley, WA 99206</address>
+        <p style="font-size:12px;color:rgba(255,255,255,.45);margin-top:12px;">Employee verification only:<br><a href="tel:+15046122673" style="color:var(--green)">+1 (504) 612-2673</a></p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#story">About</a></li>
+          <li><a href="#brands">Brands</a></li>
+          <li><a href="#awards">Awards</a></li>
+          <li><a href="#press">Press</a></li>
+          <li><a href="#tech">Technology</a></li>
+          <li><a href="/careers.html">Careers</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+          <li><a href="/brand-guide.html">Brand Guide</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/phatpanda/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.facebook.com/phatpandastore/" target="_blank" rel="noopener">Facebook</a></li>
+          <li><a href="https://twitter.com/phatpanda" target="_blank" rel="noopener">X / Twitter</a></li>
+          <li><a href="https://www.youtube.com/channel/UCqo7FtH5laZXTYvu8_jVYcw" target="_blank" rel="noopener">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-legal">
+      <p><strong>Warning:</strong> This product has intoxicating effects and may be habit forming. Cannabis can impair concentration, coordination, and judgment. Do not operate a vehicle or machinery under the influence. For use only by adults 21 and older. Keep out of reach of children.</p>
+      <p><strong>Licensee:</strong> CDXX Virtuosi Group, LLC · <strong>License Type:</strong> Microbusiness — Distribution, Level 1 Manufacturing, Cultivation, Nursery · <strong>License #:</strong> C12-0000319-LIC</p>
+      <p style="padding-top:12px;border-top:1px solid var(--line);margin-top:16px;">© <span id="yr">2026</span> Phat Panda LLC. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<a href="#top" class="totop" id="totop" aria-label="Back to top">↑</a>
+
+<script>
+(function(){
+  // Age gate
+  var K='pp_age';
+  var gate=document.getElementById('gate');
+  var passed=localStorage.getItem(K)||sessionStorage.getItem(K)||new URLSearchParams(location.search).has('skip');
+  if(passed){gate.hidden=true}else{document.body.style.overflow='hidden'}
+  document.getElementById('g-yes').onclick=function(){localStorage.setItem(K,'1');gate.hidden=true;document.body.style.overflow=''};
+  document.getElementById('g-no').onclick=function(){location.href='https://www.google.com'};
+
+  // Nav scroll state + burger
+  var nav=document.getElementById('nav'),burger=document.getElementById('burger'),links=document.getElementById('nav-links'),totop=document.getElementById('totop');
+  window.addEventListener('scroll',function(){
+    var y=window.scrollY;
+    nav.classList.toggle('is-pinned',y>40);
+    totop.classList.toggle('is-on',y>600);
+  },{passive:true});
+  burger.onclick=function(){
+    var open=links.classList.toggle('is-open');
+    burger.classList.toggle('is-open',open);
+    burger.setAttribute('aria-expanded',open);
+  };
+  document.querySelectorAll('.nav-links a').forEach(function(a){
+    a.onclick=function(){links.classList.remove('is-open');burger.classList.remove('is-open')};
+  });
+
+  // Filter chips
+  var chips=document.querySelectorAll('.brands-filters button');
+  var cards=document.querySelectorAll('.brand-card');
+  chips.forEach(function(c){
+    c.onclick=function(){
+      chips.forEach(function(x){x.classList.remove('is-active')});
+      c.classList.add('is-active');
+      var f=c.dataset.f;
+      cards.forEach(function(card){
+        card.classList.toggle('is-hidden',f!=='all'&&card.dataset.cat!==f);
+      });
+    };
+  });
+
+  // Reveal on scroll
+  var rs=document.querySelectorAll('.story-grid,.brands-head,.brand-card,.award-row,.press-row,.tech-grid,.cta-band h2');
+  rs.forEach(function(el){el.classList.add('reveal')});
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target)}
+      });
+    },{threshold:.05,rootMargin:'0px 0px -8% 0px'});
+    rs.forEach(function(el){io.observe(el)});
+  }else{rs.forEach(function(el){el.classList.add('is-in')})}
+
+  // Year
+  document.getElementById('yr').textContent=new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
