@@ -594,25 +594,25 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
   </div>
 </section>
 
-<!-- TECH -->
+<!-- TECH — powered by Bamboo (getbamboo.com) -->
 <section class="tech" id="tech">
   <div class="wrap">
     <div class="tech-grid">
       <div>
-        <p class="tech-label">— Panda Technology</p>
-        <h2>We built our own <em>seed-to-sale stack.</em></h2>
-        <p>The tools the industry shipped were clunky and slow. So we built our own — and over two years of in-house engineering, the Panda Portal became the system we wished existed. Now licensed to select cultivators in WA and CA.</p>
+        <p class="tech-label">— Powered by Bamboo</p>
+        <h2>Built on the <em>best stack</em> in cannabis.</h2>
+        <p>Running 12 brands across 3 states means traceability, compliance, and sales can't be an afterthought. We run our entire operation — seed-to-sale, CRM, manifests, sales orders, reporting — on <a href="https://getbamboo.com" target="_blank" rel="noopener" style="color:#000;text-decoration:underline;text-underline-offset:3px">Bamboo</a>, the cannabis platform built for operators who actually scale.</p>
         <ul>
-          <li>Fully customizable CRM</li>
-          <li>Real-time live inventory</li>
-          <li>Reporting &amp; analytics</li>
-          <li>Wholesale marketplace</li>
-          <li>Seed-to-sale traceability</li>
+          <li>Bamboo Trace — seed-to-sale, BioTrack / Metrc / CCRS compliance</li>
+          <li>Bamboo Sales CRM — B2B order management and outreach</li>
+          <li>Smart Cart AI — order-building automation</li>
+          <li>Real-time live inventory across every license</li>
+          <li>Manifests and labeling in minutes, not hours</li>
         </ul>
-        <a href="/contact.html" class="tech-cta">Inquire about licensing →</a>
+        <a href="https://getbamboo.com" target="_blank" rel="noopener" class="tech-cta">Learn about Bamboo ↗</a>
       </div>
       <div class="tech-mock">
-        <div class="tech-mock-head"><strong>Panda Portal</strong><span>● Live</span></div>
+        <div class="tech-mock-head"><strong>Bamboo Sales</strong><span>● Live</span></div>
         <div class="tech-mock-rows">
           <div class="tech-mock-row"><span>Live inventory</span><strong>14,328 u</strong></div>
           <div class="tech-mock-row"><span>Open orders</span><strong>92</strong></div>
@@ -620,7 +620,14 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
           <div class="tech-mock-row"><span>This week revenue</span><strong>$847k</strong></div>
         </div>
         <div class="tech-mock-chart"><i style="height:45%"></i><i style="height:78%"></i><i style="height:62%"></i><i style="height:91%"></i><i style="height:55%"></i><i style="height:84%"></i><i style="height:70%"></i></div>
+        <p style="font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.45);margin:20px 0 0;text-align:center">Representative dashboard — getbamboo.com</p>
       </div>
+    </div>
+
+    <div style="margin-top:80px;padding:48px;background:#000;color:#fff;border-left:4px solid var(--green);max-width:880px">
+      <p style="font-family:var(--font-serif);font-style:italic;font-size:clamp(20px,2.4vw,28px);line-height:1.4;margin:0 0 16px;color:#fff">"Bamboo has helped streamline the sales operation, allowing my team and I to focus more on the branding and cultivation side of the business."</p>
+      <p style="font-size:13px;letter-spacing:.15em;text-transform:uppercase;color:var(--green);margin:0;font-family:var(--font-display)">Rob McKinley · CEO, Phat Panda</p>
+      <p style="font-size:12px;color:rgba(255,255,255,.5);margin:8px 0 0">Featured on the Bamboo homepage as America's Top Privately-Owned Cultivator.</p>
     </div>
   </div>
 </section>
@@ -715,41 +722,4 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
   burger.onclick=function(){
     var open=links.classList.toggle('is-open');
     burger.classList.toggle('is-open',open);
-    burger.setAttribute('aria-expanded',open);
-  };
-  document.querySelectorAll('.nav-links a').forEach(function(a){
-    a.onclick=function(){links.classList.remove('is-open');burger.classList.remove('is-open')};
-  });
-
-  // Filter chips
-  var chips=document.querySelectorAll('.brands-filters button');
-  var cards=document.querySelectorAll('.brand-card');
-  chips.forEach(function(c){
-    c.onclick=function(){
-      chips.forEach(function(x){x.classList.remove('is-active')});
-      c.classList.add('is-active');
-      var f=c.dataset.f;
-      cards.forEach(function(card){
-        card.classList.toggle('is-hidden',f!=='all'&&card.dataset.cat!==f);
-      });
-    };
-  });
-
-  // Reveal on scroll
-  var rs=document.querySelectorAll('.story-grid,.brands-head,.brand-card,.award-row,.press-row,.tech-grid,.cta-band h2');
-  rs.forEach(function(el){el.classList.add('reveal')});
-  if('IntersectionObserver' in window){
-    var io=new IntersectionObserver(function(es){
-      es.forEach(function(e){
-        if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target)}
-      });
-    },{threshold:.05,rootMargin:'0px 0px -8% 0px'});
-    rs.forEach(function(el){io.observe(el)});
-  }else{rs.forEach(function(el){el.classList.add('is-in')})}
-
-  // Year
-  document.getElementById('yr').textContent=new Date().getFullYear();
-})();
-</script>
-</body>
-</html>
+    burger.setAttribute('aria-expan

@@ -13,8 +13,10 @@
   };
 
   function regionFor(city){
+    if (!city) return 'Other';
+    const c = String(city).toLowerCase();
     for (const [k, list] of Object.entries(REGIONS)) {
-      if (list.some(c => city.toLowerCase().includes(c.toLowerCase()))) return k;
+      if (list.some(x => c.includes(x.toLowerCase()))) return k;
     }
     return 'Other';
   }
@@ -175,8 +177,4 @@
   }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
-})();
+    document.addEventListener('DOM
