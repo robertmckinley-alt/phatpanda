@@ -64,36 +64,38 @@
         </div>
       </div>
 
-      <form class="contact-block" onsubmit="event.preventDefault(); alert('Thanks — we will be in touch.');">
+      <!-- FORMSPREE — replace YOUR_FORM_ID below with the form ID from formspree.io.
+           Setup: https://formspree.io/forms/new — point Notification email to contact@phatpanda.com (or whoever).
+           No backend code needed; submissions go to your inbox + Formspree dashboard. -->
+      <form class="contact-block" id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
         <h3>Send us a message</h3>
+        <input type="hidden" name="_subject" id="c-subject" value="phatpanda.com — New contact form submission">
+        <!-- Honeypot for bots -->
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
         <div class="form-row"><label for="c-name">Name</label><input id="c-name" name="name" type="text" required></div>
         <div class="form-row"><label for="c-email">Email</label><input id="c-email" name="email" type="email" required></div>
+        <div class="form-row"><label for="c-company">Company (optional)</label><input id="c-company" name="company" type="text"></div>
         <div class="form-row"><label for="c-type">Inquiry type</label>
           <select id="c-type" name="type">
-            <option>Wholesale</option><option>Press</option><option>Licensing (Panda Portal)</option><option>Careers</option><option>General</option>
+            <option>Wholesale</option><option>Press</option><option>Licensing (Panda Portal)</option><option>Careers</option><option>Retailer onboarding</option><option>General</option>
           </select>
         </div>
         <div class="form-row"><label for="c-msg">Message</label><textarea id="c-msg" name="message" required></textarea></div>
-        <button type="submit" class="btn btn--primary">Send</button>
+        <button type="submit" class="btn btn--primary" id="contact-submit">Send</button>
+        <div id="contact-status" role="status" aria-live="polite" style="margin-top:14px;font-size:.9rem;"></div>
       </form>
-    </div>
-  </section>
-</main>
+      <script>
+      (function(){
+        var f = document.getElementById('contact-form');
+        if (!f) return;
+        var status = document.getElementById('contact-status');
+        var btn = document.getElementById('contact-submit');
+        var subject = document.getElementById('c-subject');
+        var typeEl = document.getElementById('c-type');
+        // Tag the subject with the inquiry type so it lands in your inbox sortable
+        function syncSubject(){ if (subject && typeEl) subject.value = 'phatpanda.com — ' + typeEl.value + ' inquiry'; }
+        typeEl?.addEventListener('change', syncSubject); syncSubject();
 
-<footer class="site-footer">
-  <div class="container site-footer__grid">
-    <div>
-      <a href="/" class="site-footer__logo"><img src="https://phatpanda.com/assets/img/logos/PP-WhiteGreen-Wide.svg" alt="Phat Panda" style="height:44px;width:auto;"></a>
-      <p class="site-footer__tag">Premium cannabis since 2014.</p>
-    </div>
-    <div><h3>Visit</h3><address>2611 N Woodruff Rd<br>Spokane Valley, WA 99206</address></div>
-    <div><h3>Explore</h3><ul><li><a href="/#about">About</a></li><li><a href="/#brands">Brands</a></li><li><a href="/#press">Press</a></li><li><a href="/careers.html">Careers</a></li><li><a href="/contact.html">Contact</a></li><li><a href="/brand-guide.html">Brand Guide</a></li></ul></div>
-    <div><h3>Follow</h3><ul class="social"><li><a href="https://www.instagram.com/phatpanda/" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://www.facebook.com/phatpandastore/" target="_blank" rel="noopener">Facebook</a></li><li><a href="https://twitter.com/phatpanda" target="_blank" rel="noopener">X / Twitter</a></li><li><a href="https://www.youtube.com/channel/UCqo7FtH5laZXTYvu8_jVYcw" target="_blank" rel="noopener">YouTube</a></li></ul></div>
-  </div>
-  <div class="site-footer__legal"><div class="container"><p><strong>Warning:</strong> For use only by adults 21 and older. Keep out of reach of children.</p><p class="site-footer__copy">© <span id="year">2026</span> Phat Panda LLC. All rights reserved.</p></div></div>
-</footer>
-
-<a href="#top" class="back-to-top" aria-label="Back to top">↑</a>
-<script src="/assets/js/main.js" defer></script>
-</body>
-</html>
+        f.addEventListener('submit', function(e){
+          if (f.action.indexOf('YOUR_FORM_ID') !== -1) {
+            // Demo mode — Formspree not configured 

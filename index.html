@@ -139,6 +139,30 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 .story-stat .lbl{font-size:12px;text-transform:uppercase;letter-spacing:.2em;color:rgba(255,255,255,.5);margin-top:12px}
 @media(max-width:880px){.story-grid{grid-template-columns:1fr;gap:48px}.story-stats{grid-template-columns:1fr 1fr}}
 
+/* ─── PRODUCT SHOWCASE ─── */
+.showcase{padding:140px 0;background:var(--ink)}
+.showcase-eyebrow{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--green);font-weight:500;margin:0 0 24px}
+.showcase-title{font-family:var(--font-display);font-size:clamp(40px,5vw,84px);line-height:.95;letter-spacing:-.02em;text-transform:uppercase;margin:0 0 64px}
+.showcase-title em{font-style:italic;font-family:var(--font-serif);color:var(--green);font-weight:400}
+.showcase-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media(max-width:1100px){.showcase-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.showcase-grid{grid-template-columns:1fr}}
+.showcase-card{aspect-ratio:3/4;position:relative;overflow:hidden;display:block;background:#000;border:1px solid var(--line);transition:transform .4s cubic-bezier(.7,0,.3,1)}
+.showcase-card::before{content:"";position:absolute;inset:0;background-image:var(--bg-img);background-size:cover;background-position:center;opacity:.85;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.showcase-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(0,0,0,.85) 100%)}
+.showcase-card:hover{transform:translateY(-6px)}
+.showcase-card:hover::before{transform:scale(1.05)}
+.showcase-card--flower{background:linear-gradient(135deg,#1a2912 0%,#2d4520 100%)}
+.showcase-card--concentrate{background:linear-gradient(135deg,#2a1a0f 0%,#4a2f1f 100%)}
+.showcase-card--vape{background:linear-gradient(135deg,#0f1a2a 0%,#1f2f4a 100%)}
+.showcase-card--edible{background:linear-gradient(135deg,#2a0f1a 0%,#4a1f3a 100%)}
+.showcase-card-inner{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:28px;z-index:1}
+.showcase-card-tag{font-family:var(--font-display);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--green);margin-bottom:8px}
+.showcase-card h3{font-family:var(--font-display);font-size:clamp(20px,2.2vw,28px);text-transform:uppercase;margin:0 0 6px;color:#fff;letter-spacing:-.01em}
+.showcase-card p{font-size:13px;color:rgba(255,255,255,.75);margin:0;line-height:1.4}
+.showcase-note{margin-top:48px;padding:16px 20px;border:1px dashed var(--line);font-size:12px;color:rgba(255,255,255,.4);text-align:center}
+.showcase-note code{background:rgba(114,188,68,.1);color:var(--green);padding:2px 6px;font-family:monospace}
+
 /* ─── BRAND MARQUEE ─── */
 .marquee{padding:60px 0;background:var(--bone);color:#000;overflow:hidden;border-top:1px solid #000;border-bottom:1px solid #000}
 .marquee-label{text-align:center;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:#000;margin-bottom:32px;font-weight:500;opacity:.6}
@@ -296,9 +320,9 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
   <div class="nav-links" id="nav-links">
     <a href="#story">About</a>
     <a href="#brands">Brands</a>
-    <a href="#awards">Awards</a>
+    <a href="/retailers.html">Find Us</a>
+    <a href="/news/">News</a>
     <a href="#press">Press</a>
-    <a href="#tech">Technology</a>
     <a href="/careers.html">Careers</a>
     <a href="https://phatpandastore.com/" target="_blank" rel="noopener" class="nav-cta">Shop&nbsp;→</a>
   </div>
@@ -384,6 +408,50 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
   </div>
 </div>
 
+<!-- PRODUCT SHOWCASE — photo slots
+     Replace the background-image URLs below with real Phat Panda product shots
+     when you have them (1200x1600 portrait works best). Until then, the slots
+     show branded color blocks with sub-brand wordmarks. -->
+<section class="showcase">
+  <div class="wrap">
+    <p class="showcase-eyebrow">— What we grow</p>
+    <h2 class="showcase-title">Real product, <em>real rooms.</em></h2>
+
+    <div class="showcase-grid">
+      <a class="showcase-card showcase-card--flower" href="https://phatpandastore.com/collections/flower" target="_blank" rel="noopener" style="--bg-img: none">
+        <div class="showcase-card-inner">
+          <span class="showcase-card-tag">Flower</span>
+          <h3>Phat Panda</h3>
+          <p>Hand-trimmed, single-strain, top-shelf nugs</p>
+        </div>
+      </a>
+      <a class="showcase-card showcase-card--concentrate" href="https://phatpandastore.com/collections/concentrates" target="_blank" rel="noopener" style="--bg-img: none">
+        <div class="showcase-card-inner">
+          <span class="showcase-card-tag">Concentrates</span>
+          <h3>Dabstract</h3>
+          <p>Live rosin · live resin · cured resin</p>
+        </div>
+      </a>
+      <a class="showcase-card showcase-card--vape" href="https://phatpandastore.com/collections/vapes" target="_blank" rel="noopener" style="--bg-img: none">
+        <div class="showcase-card-inner">
+          <span class="showcase-card-tag">Vape</span>
+          <h3>Panda Pen</h3>
+          <p>Pure live-resin carts and disposables</p>
+        </div>
+      </a>
+      <a class="showcase-card showcase-card--edible" href="https://phatpandastore.com/collections/edibles" target="_blank" rel="noopener" style="--bg-img: none">
+        <div class="showcase-card-inner">
+          <span class="showcase-card-tag">Edibles</span>
+          <h3>Hot Sugar</h3>
+          <p>Gummies made in-house from real fruit</p>
+        </div>
+      </a>
+    </div>
+
+    <p class="showcase-note">Drop real product photography in by editing the <code>--bg-img</code> values above — JPG/WebP 1200×1600.</p>
+  </div>
+</section>
+
 <!-- HOUSE OF BRANDS -->
 <section class="brands" id="brands">
   <div class="wrap">
@@ -399,66 +467,66 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
       </div>
     </div>
     <div class="brand-grid" id="brand-grid">
-      <article class="brand-card" data-cat="flower">
+      <a class="brand-card" data-cat="flower" href="https://phatpandastore.com/search?q=Phat+Panda" target="_blank" rel="noopener">
         <span class="brand-card-arrow">↗</span>
         <div class="brand-card-logo"><img src="https://phatpanda.com/assets/img/logos/PP-BlackGreen-Square.svg" alt="Phat Panda"></div>
         <div class="brand-card-body"><span class="brand-card-name">Phat Panda</span><span class="brand-card-cat">Flower</span></div>
-      </article>
-      <article class="brand-card" data-cat="concentrate">
+      </a>
+      <a class="brand-card" data-cat="concentrate" href="https://phatpandastore.com/search?q=Dabstract" target="_blank" rel="noopener">
         <span class="brand-card-arrow">↗</span>
         <div class="brand-card-logo"><img src="https://phatpanda.com/assets/img/logos/sub-brands/Dabstract%20Black.svg" alt="Dabstract"></div>
         <div class="brand-card-body"><span class="brand-card-name">Dabstract</span><span class="brand-card-cat">Concentrate</span></div>
-      </article>
-      <article class="brand-card" data-cat="edible">
+      </a>
+      <a class="brand-card" data-cat="edible" href="https://phatpandastore.com/search?q=Hot+Sugar" target="_blank" rel="noopener">
         <span class="brand-card-arrow">↗</span>
         <div class="brand-card-logo"><img src="https://phatpanda.com/assets/img/logos/sub-brands/Hot%20Sugar%20Black.svg" alt="Hot Sugar"></div>
         <div class="brand-card-body"><span class="brand-card-name">Hot Sugar</span><span class="brand-card-cat">Edible</span></div>
-      </article>
-      <article class="brand-card" data-cat="vape">
+      </a>
+      <a class="brand-card" data-cat="vape" href="https://phatpandastore.com/search?q=Panda+Pen" target="_blank" rel="noopener">
         <span class="brand-card-arrow">↗</span>
         <div class="brand-card-logo"><img src="https://phatpanda.com/assets/img/logos/sub-brands/Panda%20Pen%20Black.svg" alt="Panda Pen"></div>
         <div class="brand-card-body"><span class="brand-card-name">Panda Pen</span><span class="brand-card-cat">Vape</span></div>
-      </article>
-      <article class="brand-card" data-cat="preroll">
+      </a>
+      <a class="brand-card" data-cat="preroll" href="https://phatpandastore.com/search?q=Bangers" target="_blank" rel="noopener">
         <span class="brand-card-arrow">↗</span>
         <div class="brand-card-logo"><img src="https://phatpanda.com/assets/img/logos/sub-brands/Bangers%20Black.svg" alt="Bangers"></div>
         <div class="brand-card-body"><span class="brand-card-name">Bangers</span><span class="brand-card-cat">Pre-Roll</span></div>
-      </article>
-      <article class="brand-card" data-cat="edible">
+      </a>
+      <a class="brand-card" data-cat="edible" href="https://phatpandastore.com/search?q=Juice+Box" target="_blank" rel="noopener">
         <span class="brand-card-arrow">↗</span>
         <div class="brand-card-logo"><img src="https://phatpanda.com/assets/img/logos/sub-brands/Juice%20Box%20Full%20Color.svg" alt="Juice Box"></div>
         <div class="brand-card-body"><span class="brand-card-name">Juice Box</span><span class="brand-card-cat">Edible</span></div>
-      </article>
-      <article class="brand-card" data-cat="edible">
+      </a>
+      <a class="brand-card" data-cat="edible" href="https://phatpandastore.com/search?q=Cake+House" target="_blank" rel="noopener">
         <span class="brand-card-arrow">↗</span>
         <div class="brand-card-logo"><img src="https://phatpanda.com/assets/img/logos/sub-brands/cakehouse-stacked-004.svg" alt="Cake House"></div>
         <div class="brand-card-body"><span class="brand-card-name">Cake House</span><span class="brand-card-cat">Edible</span></div>
-      </article>
-      <article class="brand-card" data-cat="edible">
+      </a>
+      <a class="brand-card" data-cat="edible" href="https://phatpandastore.com/search?q=Kandy+Shoppe" target="_blank" rel="noopener">
         <span class="brand-card-arrow">↗</span>
         <div class="brand-card-logo"><img src="https://phatpanda.com/assets/img/logos/sub-brands/Kandy%20Shoppe%20Logo.svg" alt="Kandy Shoppe"></div>
         <div class="brand-card-body"><span class="brand-card-name">Kandy Shoppe</span><span class="brand-card-cat">Edible</span></div>
-      </article>
-      <article class="brand-card" data-cat="flower">
+      </a>
+      <a class="brand-card" data-cat="flower" href="https://phatpandastore.com/search?q=Snickle+Fritz" target="_blank" rel="noopener">
         <span class="brand-card-arrow">↗</span>
         <div class="brand-card-logo"><img src="https://phatpanda.com/assets/img/logos/sub-brands/SnickleFritz%20-%20Black.svg" alt="Snickle Fritz"></div>
         <div class="brand-card-body"><span class="brand-card-name">Snickle Fritz</span><span class="brand-card-cat">Flower</span></div>
-      </article>
-      <article class="brand-card" data-cat="vape">
+      </a>
+      <a class="brand-card" data-cat="vape" href="https://phatpandastore.com/search?q=Hot+Shotz" target="_blank" rel="noopener">
         <span class="brand-card-arrow">↗</span>
         <div class="brand-card-logo"><img src="https://phatpanda.com/assets/img/logos/sub-brands/Hotshotz%20Black.svg" alt="Hot Shotz"></div>
         <div class="brand-card-body"><span class="brand-card-name">Hot Shotz</span><span class="brand-card-cat">Vape</span></div>
-      </article>
-      <article class="brand-card" data-cat="vape">
+      </a>
+      <a class="brand-card" data-cat="vape" href="https://phatpandastore.com/search?q=Eluzion" target="_blank" rel="noopener">
         <span class="brand-card-arrow">↗</span>
         <div class="brand-card-logo"><img src="https://phatpanda.com/assets/img/logos/sub-brands/28Eluzion%20Blue.png" alt="Eluzion"></div>
         <div class="brand-card-body"><span class="brand-card-name">Eluzion</span><span class="brand-card-cat">Vape</span></div>
-      </article>
-      <article class="brand-card" data-cat="preroll">
+      </a>
+      <a class="brand-card" data-cat="preroll" href="https://phatpandastore.com/search?q=Firecracker" target="_blank" rel="noopener">
         <span class="brand-card-arrow">↗</span>
         <div class="brand-card-logo"><img src="https://phatpanda.com/assets/img/logos/sub-brands/Firecracker%20Full%20Color.svg" alt="Firecracker"></div>
         <div class="brand-card-body"><span class="brand-card-name">Firecracker</span><span class="brand-card-cat">Pre-Roll</span></div>
-      </article>
+      </a>
     </div>
   </div>
 </section>
@@ -554,119 +622,3 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 
 <!-- CTA BAND -->
 <section class="cta-band">
-  <div class="wrap">
-    <h2>Join the <em>Panda family.</em></h2>
-    <p>550 team members. Three states. Real benefits, real growth tracks, free product samples every month. We hire growers, packagers, scientists, designers — and we treat them like family.</p>
-    <div class="cta-band-buttons">
-      <a href="/careers.html" class="a-primary">View open roles →</a>
-      <a href="/contact.html" class="a-ghost">Wholesale inquiries</a>
-    </div>
-  </div>
-</section>
-
-</main>
-
-<!-- FOOTER -->
-<footer class="foot">
-  <div class="wrap">
-    <div class="foot-grid">
-      <div>
-        <a href="/" class="foot-logo" aria-label="Phat Panda home"><img src="https://phatpanda.com/assets/img/logos/PP-WhiteGreen-Wide.svg" alt=""></a>
-        <p class="foot-tag">Premium Washington cannabis since 2014. Cultivated, extracted, packaged and shipped by the Panda family in Spokane Valley, WA.</p>
-      </div>
-      <div>
-        <h4>Visit</h4>
-        <address>2611 N Woodruff Rd<br>Spokane Valley, WA 99206</address>
-        <p style="font-size:12px;color:rgba(255,255,255,.45);margin-top:12px;">Employee verification only:<br><a href="tel:+15046122673" style="color:var(--green)">+1 (504) 612-2673</a></p>
-      </div>
-      <div>
-        <h4>Explore</h4>
-        <ul>
-          <li><a href="#story">About</a></li>
-          <li><a href="#brands">Brands</a></li>
-          <li><a href="#awards">Awards</a></li>
-          <li><a href="#press">Press</a></li>
-          <li><a href="#tech">Technology</a></li>
-          <li><a href="/careers.html">Careers</a></li>
-          <li><a href="/contact.html">Contact</a></li>
-          <li><a href="/brand-guide.html">Brand Guide</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Follow</h4>
-        <ul>
-          <li><a href="https://www.instagram.com/phatpanda/" target="_blank" rel="noopener">Instagram</a></li>
-          <li><a href="https://www.facebook.com/phatpandastore/" target="_blank" rel="noopener">Facebook</a></li>
-          <li><a href="https://twitter.com/phatpanda" target="_blank" rel="noopener">X / Twitter</a></li>
-          <li><a href="https://www.youtube.com/channel/UCqo7FtH5laZXTYvu8_jVYcw" target="_blank" rel="noopener">YouTube</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="foot-legal">
-      <p><strong>Warning:</strong> This product has intoxicating effects and may be habit forming. Cannabis can impair concentration, coordination, and judgment. Do not operate a vehicle or machinery under the influence. For use only by adults 21 and older. Keep out of reach of children.</p>
-      <p><strong>Licensee:</strong> CDXX Virtuosi Group, LLC · <strong>License Type:</strong> Microbusiness — Distribution, Level 1 Manufacturing, Cultivation, Nursery · <strong>License #:</strong> C12-0000319-LIC</p>
-      <p style="padding-top:12px;border-top:1px solid var(--line);margin-top:16px;">© <span id="yr">2026</span> Phat Panda LLC. All rights reserved.</p>
-    </div>
-  </div>
-</footer>
-
-<a href="#top" class="totop" id="totop" aria-label="Back to top">↑</a>
-
-<script>
-(function(){
-  // Age gate
-  var K='pp_age';
-  var gate=document.getElementById('gate');
-  var passed=localStorage.getItem(K)||sessionStorage.getItem(K)||new URLSearchParams(location.search).has('skip');
-  if(passed){gate.hidden=true}else{document.body.style.overflow='hidden'}
-  document.getElementById('g-yes').onclick=function(){localStorage.setItem(K,'1');gate.hidden=true;document.body.style.overflow=''};
-  document.getElementById('g-no').onclick=function(){location.href='https://www.google.com'};
-
-  // Nav scroll state + burger
-  var nav=document.getElementById('nav'),burger=document.getElementById('burger'),links=document.getElementById('nav-links'),totop=document.getElementById('totop');
-  window.addEventListener('scroll',function(){
-    var y=window.scrollY;
-    nav.classList.toggle('is-pinned',y>40);
-    totop.classList.toggle('is-on',y>600);
-  },{passive:true});
-  burger.onclick=function(){
-    var open=links.classList.toggle('is-open');
-    burger.classList.toggle('is-open',open);
-    burger.setAttribute('aria-expanded',open);
-  };
-  document.querySelectorAll('.nav-links a').forEach(function(a){
-    a.onclick=function(){links.classList.remove('is-open');burger.classList.remove('is-open')};
-  });
-
-  // Filter chips
-  var chips=document.querySelectorAll('.brands-filters button');
-  var cards=document.querySelectorAll('.brand-card');
-  chips.forEach(function(c){
-    c.onclick=function(){
-      chips.forEach(function(x){x.classList.remove('is-active')});
-      c.classList.add('is-active');
-      var f=c.dataset.f;
-      cards.forEach(function(card){
-        card.classList.toggle('is-hidden',f!=='all'&&card.dataset.cat!==f);
-      });
-    };
-  });
-
-  // Reveal on scroll
-  var rs=document.querySelectorAll('.story-grid,.brands-head,.brand-card,.award-row,.press-row,.tech-grid,.cta-band h2');
-  rs.forEach(function(el){el.classList.add('reveal')});
-  if('IntersectionObserver' in window){
-    var io=new IntersectionObserver(function(es){
-      es.forEach(function(e){
-        if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target)}
-      });
-    },{threshold:.05,rootMargin:'0px 0px -8% 0px'});
-    rs.forEach(function(el){io.observe(el)});
-  }else{rs.forEach(function(el){el.classList.add('is-in')})}
-
-  // Year
-  document.getElementById('yr').textContent=new Date().getFullYear();
-})();
-</script>
-</body>
-</html>
