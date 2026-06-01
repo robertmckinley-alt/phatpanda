@@ -1,21 +1,18 @@
-/* Phat Panda — Retailer Locator
-   Loads retailers.json, renders list + Leaflet map, supports search and region filter.
-*/
+/* Phat Panda — Retailer Locator */
 (function(){
   'use strict';
 
   const REGIONS = {
-    'Seattle': ['Seattle','Bellevue','Renton','Burien','Tukwila','Shoreline','Kirkland','Redmond','Lynnwood','Bothell','Issaquah','Mercer Island','Edmonds','Everett','Federal Way','Kent','Auburn','SeaTac'],
-    'Vancouver': ['Vancouver','Camas','Battle Ground','Ridgefield','Washougal','Longview','Kelso'],
-    'Tri': ['Kennewick','Pasco','Richland','West Richland','Benton City'],
-    'Spokane': ['Spokane','Spokane Valley','Cheney','Pullman','Liberty Lake','Airway Heights','Deer Park','Colville','Walla Walla','Yakima','Wenatchee','Ellensburg','Moses Lake','East Wenatchee','Toppenish','Selah','Sunnyside','Othello','Quincy','Ephrata','Newport','Republic','Mead','Medical Lake','Clarkston','Omak','Okanogan','Tonasket','Leavenworth','Chelan','Brewster','Kettle Falls','Goldendale'],
-    'Tacoma': ['Tacoma','Lakewood','University Place','Puyallup','Gig Harbor','Olympia','Lacey','Tumwater','Bremerton','Port Orchard','Silverdale','Aberdeen','Hoquiam','Centralia','Chehalis','Shelton','Yelm','Bonney Lake','Sumner','Buckley','Enumclaw','Eatonville']
+    'Seattle': ['Seattle','Bellevue','Renton','Burien','Tukwila','Shoreline','Kirkland','Redmond','Lynnwood','Bothell','Issaquah','Mercer Island','Edmonds','Everett','Federal Way','Kent','Auburn','SeaTac','Marysville','Arlington','Stanwood','Monroe','Snohomish','Lake Stevens','Granite Falls','Mukilteo','Kenmore','Mountlake Terrace','Woodinville','Lake Forest Park','Des Moines','Newcastle','Ballard','Capitol Hill','Queen Anne','Greenwood','Sodo','Fremont','Magnolia','White Center','Pioneer Square','Bellingham','Lynden','Ferndale','Birch Bay','Custer','Blaine','Sumas','Anacortes','Mount Vernon','Mt Vernon','Sedro Woolley','Burlington','Bow','Oak Harbor','Coupeville','Greenbank','Freeland','Langley','Clinton','Friday Harbor','Bainbridge Island','Vashon Island','Bothell','Sammamish','Gold Bar','Sultan'],
+    'Vancouver': ['Vancouver','Camas','Battle Ground','Ridgefield','Washougal','Longview','Kelso','Woodland','Castle Rock','Cathlamet','Kalama','La Center','Seaview','Ilwaco','South Bend','Long Beach','Ocean Park','Raymond','Naselle','Chinook'],
+    'Tri': ['Kennewick','Pasco','Richland','West Richland','Benton City','Burbank','Prosser','Connell','Eltopia','Mesa','Plymouth','Finley'],
+    'Spokane': ['Spokane','Spokane Valley','Cheney','Pullman','Liberty Lake','Airway Heights','Deer Park','Colville','Walla Walla','Yakima','Wenatchee','Ellensburg','Moses Lake','East Wenatchee','Toppenish','Selah','Sunnyside','Othello','Quincy','Ephrata','Newport','Republic','Mead','Medical Lake','Clarkston','Omak','Okanogan','Tonasket','Leavenworth','Chelan','Brewster','Kettle Falls','Goldendale','Ritzville','Davenport','Sprague','Otis Orchards','Nine Mile Falls','Valley','Loon Lake','Twisp','Winthrop','Grand Coulee','Peshastin','Cle Elum','Cashmere','Manson','Mabton','Wapato','Granger','Grandview','Dayton','College Place','Pomeroy','Waitsburg','Asotin','Tekoa','Colfax','Rosalia','Garfield','Palouse','Endicott','Lacrosse','Oroville','Curlew','Northport','Ione','Metaline Falls','White Salmon','Stevenson','Bingen','Klickitat','Lyle','Glenwood'],
+    'Tacoma': ['Tacoma','Lakewood','University Place','Puyallup','Gig Harbor','Olympia','Lacey','Tumwater','Bremerton','Port Orchard','Silverdale','Aberdeen','Hoquiam','Centralia','Chehalis','Shelton','Yelm','Bonney Lake','Sumner','Buckley','Enumclaw','Eatonville','Fife','Spanaway','Graham','Black Diamond','Maple Valley','Covington','Tenino','Rainier','Roy','Mineral','Ashford','Packwood','Morton','Mossyrock','Toledo','Winlock','Vader','Pe Ell','Cosmopolis','Westport','Tokeland','Montesano','Elma','Mccleary','Oakville','Rochester','Port Townsend','Port Angeles','Sequim','Forks','Port Hadlock','Chimacum','Kingston','Hansville','Poulsbo','Allyn','Belfair','Hoodsport','Quilcene','Brinnon','Carlsborg','Joyce','Neah Bay']
   };
 
   function regionFor(city){
     if (!city) return 'Other';
     const c = String(city).toLowerCase();
-    // Sort matching by length so 'Spokane Valley' beats 'Spokane'
     let best = null, bestLen = 0;
     for (const [k, list] of Object.entries(REGIONS)) {
       for (const x of list) {
@@ -47,16 +44,10 @@
       .then(r => r.json())
       .then(data => {
         RETAILERS = data.map((r, i) => ({...r, id: i, region: regionFor(r.city)}));
-        // build all markers up front
         RETAILERS.forEach(r => {
           if (!r.lat || !r.lng) return;
-          const icon = L.divIcon({
-            className: '',
-            html: '<div class="pp-marker">PP</div>',
-            iconSize: [24, 24],
-            iconAnchor: [12, 12]
-          });
-          const m = L.marker([r.lat, r.lng], { icon });
+          const icon = L.divIcon({className:'',html:'<div class="pp-marker">PP</div>',iconSize:[24,24],iconAnchor:[12,12]});
+          const m = L.marker([r.lat, r.lng], {icon});
           m.bindPopup(popupHtml(r));
           m.on('click', () => focusRetailer(r.id, true));
           markers.set(r.id, m);
@@ -120,7 +111,6 @@
       });
     }
 
-    // Sync markers: clear and add only those in current filter
     if (markerLayer) {
       markerLayer.clearLayers();
       const withCoords = list.filter(r => r.lat && r.lng);
