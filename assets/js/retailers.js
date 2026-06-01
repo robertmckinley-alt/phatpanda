@@ -8,17 +8,23 @@
     'Seattle': ['Seattle','Bellevue','Renton','Burien','Tukwila','Shoreline','Kirkland','Redmond','Lynnwood','Bothell','Issaquah','Mercer Island','Edmonds','Everett','Federal Way','Kent','Auburn','SeaTac'],
     'Vancouver': ['Vancouver','Camas','Battle Ground','Ridgefield','Washougal','Longview','Kelso'],
     'Tri': ['Kennewick','Pasco','Richland','West Richland','Benton City'],
-    'Spokane': ['Spokane','Spokane Valley','Cheney','Pullman','Liberty Lake','Airway Heights','Deer Park','Colville','Walla Walla','Yakima','Wenatchee','Ellensburg','Moses Lake'],
-    'Tacoma': ['Tacoma','Lakewood','University Place','Puyallup','Gig Harbor','Olympia','Lacey','Tumwater','Bremerton','Port Orchard','Silverdale','Aberdeen','Hoquiam','Centralia','Chehalis','Shelton']
+    'Spokane': ['Spokane','Spokane Valley','Cheney','Pullman','Liberty Lake','Airway Heights','Deer Park','Colville','Walla Walla','Yakima','Wenatchee','Ellensburg','Moses Lake','East Wenatchee','Toppenish','Selah','Sunnyside','Othello','Quincy','Ephrata','Newport','Republic','Mead','Medical Lake','Clarkston','Omak','Okanogan','Tonasket','Leavenworth','Chelan','Brewster','Kettle Falls','Goldendale'],
+    'Tacoma': ['Tacoma','Lakewood','University Place','Puyallup','Gig Harbor','Olympia','Lacey','Tumwater','Bremerton','Port Orchard','Silverdale','Aberdeen','Hoquiam','Centralia','Chehalis','Shelton','Yelm','Bonney Lake','Sumner','Buckley','Enumclaw','Eatonville']
   };
 
   function regionFor(city){
     if (!city) return 'Other';
     const c = String(city).toLowerCase();
+    // Sort matching by length so 'Spokane Valley' beats 'Spokane'
+    let best = null, bestLen = 0;
     for (const [k, list] of Object.entries(REGIONS)) {
-      if (list.some(x => c.includes(x.toLowerCase()))) return k;
+      for (const x of list) {
+        if (c.includes(x.toLowerCase()) && x.length > bestLen) {
+          best = k; bestLen = x.length;
+        }
+      }
     }
-    return 'Other';
+    return best || 'Other';
   }
 
   let RETAILERS = [];
@@ -41,8 +47,21 @@
       .then(r => r.json())
       .then(data => {
         RETAILERS = data.map((r, i) => ({...r, id: i, region: regionFor(r.city)}));
+        // build all markers up front
+        RETAILERS.forEach(r => {
+          if (!r.lat || !r.lng) return;
+          const icon = L.divIcon({
+            className: '',
+            html: '<div class="pp-marker">PP</div>',
+            iconSize: [24, 24],
+            iconAnchor: [12, 12]
+          });
+          const m = L.marker([r.lat, r.lng], { icon });
+          m.bindPopup(popupHtml(r));
+          m.on('click', () => focusRetailer(r.id, true));
+          markers.set(r.id, m);
+        });
         render();
-        addMarkers();
       })
       .catch(err => {
         console.error('Retailer load failed', err);
@@ -59,7 +78,7 @@
         document.querySelectorAll('#region-filters button').forEach(b => b.classList.remove('is-active'));
         btn.classList.add('is-active');
         activeRegion = btn.dataset.region;
-        render(true);
+        render();
       });
     });
   }
@@ -73,64 +92,47 @@
     });
   }
 
-  function render(zoomToRegion){
+  function render(){
     const list = filtered();
     const root = document.getElementById('results');
     document.getElementById('count').textContent = list.length;
 
     if (list.length === 0) {
       root.innerHTML = '<div class="locator-empty">No retailers match your search. Try a different city or zip.</div>';
-      return;
+    } else {
+      root.innerHTML = list.map(r => {
+        const hasCoords = r.lat && r.lng;
+        const addr = r.address
+          ? (escapeHtml(r.address) + '<br>' + escapeHtml(r.city || '') + (r.city ? ',' : '') + ' ' + r.state + ' ' + (r.zip || '')).trim()
+          : r.city ? (escapeHtml(r.city) + ', ' + r.state) : r.state;
+        return '<div class="locator-card' + (r.id === activeId ? ' is-active' : '') + (!hasCoords ? ' is-list-only' : '') + '" data-id="' + r.id + '">' +
+          '<h3 class="locator-card-name">' + escapeHtml(r.name) + '</h3>' +
+          '<p class="locator-card-addr">' + addr + '</p>' +
+          '<div class="locator-card-meta">' +
+            (r.phone ? '<a href="tel:' + r.phone.replace(/[^0-9+]/g,'') + '">' + escapeHtml(r.phone) + '</a>' : '') +
+            (r.website ? '<a href="' + r.website + '" target="_blank" rel="noopener">Website &#8599;</a>' : '') +
+            (!hasCoords ? '<span style="color:rgba(255,255,255,.4)">No map pin yet</span>' : '') +
+          '</div>' +
+        '</div>';
+      }).join('');
+      root.querySelectorAll('.locator-card').forEach(card => {
+        card.addEventListener('click', () => focusRetailer(+card.dataset.id));
+      });
     }
 
-    root.innerHTML = list.map(r => {
-      const hasCoords = r.lat && r.lng;
-      const addr = r.address
-        ? (escapeHtml(r.address) + '<br>' + escapeHtml(r.city || '') + (r.city ? ',' : '') + ' ' + r.state + ' ' + (r.zip || '')).trim()
-        : r.city ? (escapeHtml(r.city) + ', ' + r.state) : r.state;
-      return '<div class="locator-card' + (r.id === activeId ? ' is-active' : '') + (!hasCoords ? ' is-list-only' : '') + '" data-id="' + r.id + '">' +
-        '<h3 class="locator-card-name">' + escapeHtml(r.name) + '</h3>' +
-        '<p class="locator-card-addr">' + addr + '</p>' +
-        '<div class="locator-card-meta">' +
-          (r.phone ? '<a href="tel:' + r.phone.replace(/[^0-9+]/g,'') + '">' + escapeHtml(r.phone) + '</a>' : '') +
-          (r.website ? '<a href="' + r.website + '" target="_blank" rel="noopener">Website &#8599;</a>' : '') +
-          (!hasCoords ? '<span style="color:rgba(255,255,255,.4)">No map pin yet</span>' : '') +
-        '</div>' +
-      '</div>';
-    }).join('');
-
-    root.querySelectorAll('.locator-card').forEach(card => {
-      card.addEventListener('click', () => {
-        const id = +card.dataset.id;
-        focusRetailer(id);
-      });
-    });
-
-    if (markerLayer && list.length) {
+    // Sync markers: clear and add only those in current filter
+    if (markerLayer) {
+      markerLayer.clearLayers();
       const withCoords = list.filter(r => r.lat && r.lng);
+      withCoords.forEach(r => {
+        const m = markers.get(r.id);
+        if (m) markerLayer.addLayer(m);
+      });
       if (withCoords.length) {
         const bounds = L.latLngBounds(withCoords.map(r => [r.lat, r.lng]));
         if (bounds.isValid()) map.fitBounds(bounds, { padding: [40, 40], maxZoom: 12 });
       }
     }
-  }
-
-  function addMarkers(){
-    markerLayer.clearLayers();
-    markers.clear();
-    RETAILERS.forEach(r => {
-      if (!r.lat || !r.lng) return;
-      const icon = L.divIcon({
-        className: '',
-        html: '<div class="pp-marker">PP</div>',
-        iconSize: [24, 24],
-        iconAnchor: [12, 12]
-      });
-      const m = L.marker([r.lat, r.lng], { icon }).addTo(markerLayer);
-      m.bindPopup(popupHtml(r));
-      m.on('click', () => focusRetailer(r.id, true));
-      markers.set(r.id, m);
-    });
   }
 
   function popupHtml(r){
@@ -146,12 +148,10 @@
     activeId = id;
     const r = RETAILERS.find(x => x.id === id);
     if (!r) return;
-
     document.querySelectorAll('.locator-card').forEach(c => {
       c.classList.toggle('is-active', +c.dataset.id === id);
       if (+c.dataset.id === id) c.scrollIntoView({behavior:'smooth', block:'nearest'});
     });
-
     if (r.lat && r.lng) {
       if (!fromMarker) {
         map.flyTo([r.lat, r.lng], 14, { duration: 0.6 });
