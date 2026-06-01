@@ -30,7 +30,7 @@
         <li><a href="/#press">Press</a></li>
         <li><a href="/careers.html">Careers</a></li>
         <li><a href="/contact.html" aria-current="page">Contact</a></li>
-        <li><a href="https://phatpandastore.com/" class="site-nav__cta" target="_blank" rel="noopener">Shop&nbsp;→</a></li>
+        <li><a href="https://phatpandadirect.com/" class="site-nav__cta" target="_blank" rel="noopener">Shop&nbsp;→</a></li>
       </ul>
     </nav>
   </div>
@@ -98,4 +98,53 @@
 
         f.addEventListener('submit', function(e){
           if (f.action.indexOf('YOUR_FORM_ID') !== -1) {
-            // Demo mode — Formspree not configured 
+            // Demo mode — Formspree not configured yet
+            e.preventDefault();
+            status.style.color = '#5DA035';
+            status.textContent = 'Thanks — we will be in touch. (Demo mode — Formspree form ID not yet configured.)';
+            f.reset();
+            return;
+          }
+          e.preventDefault();
+          btn.disabled = true; btn.textContent = 'Sending…';
+          status.style.color = ''; status.textContent = '';
+          fetch(f.action, {
+            method: 'POST',
+            body: new FormData(f),
+            headers: { 'Accept': 'application/json' }
+          }).then(function(res){
+            if (res.ok) {
+              status.style.color = '#5DA035';
+              status.textContent = 'Got it. We will be in touch within one business day.';
+              f.reset(); syncSubject();
+            } else {
+              return res.json().then(function(data){ throw new Error(data?.errors?.[0]?.message || 'Submit failed'); });
+            }
+          }).catch(function(err){
+            status.style.color = '#c0392b';
+            status.textContent = 'Hmm — couldn\'t send. Email contact@phatpanda.com directly. (' + err.message + ')';
+          }).finally(function(){ btn.disabled = false; btn.textContent = 'Send'; });
+        });
+      })();
+      </script>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container site-footer__grid">
+    <div>
+      <a href="/" class="site-footer__logo"><img src="https://phatpanda.com/assets/img/logos/PP-WhiteGreen-Wide.svg" alt="Phat Panda" style="height:44px;width:auto;"></a>
+      <p class="site-footer__tag">Premium cannabis since 2014.</p>
+    </div>
+    <div><h3>Visit</h3><address>2611 N Woodruff Rd<br>Spokane Valley, WA 99206</address></div>
+    <div><h3>Explore</h3><ul><li><a href="/#about">About</a></li><li><a href="/#brands">Brands</a></li><li><a href="/#press">Press</a></li><li><a href="/careers.html">Careers</a></li><li><a href="/contact.html">Contact</a></li><li><a href="/brand-guide.html">Brand Guide</a></li></ul></div>
+    <div><h3>Follow</h3><ul class="social"><li><a href="https://www.instagram.com/phatpanda/" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://www.facebook.com/phatpandastore/" target="_blank" rel="noopener">Facebook</a></li><li><a href="https://twitter.com/phatpanda" target="_blank" rel="noopener">X / Twitter</a></li><li><a href="https://www.youtube.com/channel/UCqo7FtH5laZXTYvu8_jVYcw" target="_blank" rel="noopener">YouTube</a></li></ul></div>
+  </div>
+  <div class="site-footer__legal"><div class="container"><p><strong>Warning:</strong> For use only by adults 21 and older. Keep out of reach of children.</p><p class="site-footer__copy">© <span id="year">2026</span> Phat Panda LLC. All rights reserved.</p></div></div>
+</footer>
+
+<a href="#top" class="back-to-top" aria-label="Back to top">↑</a>
+<script src="/assets/js/main.js" defer></script>
+</body>
+</html>
