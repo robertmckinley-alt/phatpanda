@@ -136,7 +136,19 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
         <a href="https://phatpandastore.com/" target="_blank" rel="noopener" class="btn btn-ghost">Shop direct</a>
       </div>
     </div>
-    <div class="hero-photo"><img src="/assets/img/products/phat-panda/hero.jpg" alt="Golden Pineapple flower in mason jar"></div>
+    <div class="hero-photo hero-rotator" aria-label="Phat Panda strains">
+      <img class="hero-rot-img is-active" data-i="0" src="/assets/img/products/phat-panda/strain-1-golden-pineapple.jpg" alt="Golden Pineapple" loading="eager">
+      <img class="hero-rot-img" data-i="1" src="/assets/img/products/phat-panda/strain-2-og-chem.jpg" alt="OG Chem" loading="lazy">
+      <img class="hero-rot-img" data-i="2" src="/assets/img/products/phat-panda/strain-3-trophy-wife.jpg" alt="Trophy Wife" loading="lazy">
+      <img class="hero-rot-img" data-i="3" src="/assets/img/products/phat-panda/strain-4-redneck-wedding.jpg" alt="Redneck Wedding" loading="lazy">
+      <div class="hero-rot-label" id="hero-rot-label">Golden Pineapple</div>
+      <div class="hero-rot-dots" role="tablist">
+        <button class="hero-rot-dot is-active" data-i="0" aria-label="Golden Pineapple"></button>
+        <button class="hero-rot-dot" data-i="1" aria-label="OG Chem"></button>
+        <button class="hero-rot-dot" data-i="2" aria-label="Trophy Wife"></button>
+        <button class="hero-rot-dot" data-i="3" aria-label="Redneck Wedding"></button>
+      </div>
+    </div>
   </div>
 </section>
 
