@@ -214,7 +214,10 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 .marquee-anchor{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:5;background:var(--bone);padding:18px 40px;border-radius:200px;box-shadow:0 0 70px 36px rgba(244,241,234,1);pointer-events:none}
 .marquee-anchor img{height:128px;width:auto;display:block}
 .marquee-track{display:flex;gap:80px;align-items:center;animation:scroll 35s linear infinite;width:max-content;position:absolute;left:0;top:50%;transform:translateY(-50%);will-change:transform}
-.marquee-track img{height:60px;width:auto;filter:none;opacity:.85;transition:opacity .3s}
+.marquee-track img{height:60px;width:auto;filter:none;opacity:.85;transition:opacity .3s;object-fit:contain;max-width:200px}
+.marquee-track img[alt="Dabstract"],.marquee-track img[alt=""][src*="Dabstract"]{height:40px;max-width:160px}
+.marquee-track img[alt="Cake House"],.marquee-track img[alt=""][src*="cakehouse"]{height:80px}
+.marquee-track img[alt="Kandy Shoppe"],.marquee-track img[alt=""][src*="Kandy"]{height:74px}
 .marquee-track img[alt="Dabstract"],.marquee-track img[alt=""][src*="Dabstract"]{height:40px}
 .marquee-track img[alt="Hot Sugar"],.marquee-track img[src*="Hot%20Sugar"]{height:46px}
 .marquee-track img[src*="Kandy%20Shoppe"],.marquee-track img[src*="Firecracker"],.marquee-track img[src*="Juice%20Box"]{height:64px}
