@@ -97,6 +97,15 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 .foot ul a:hover{color:var(--green)}
 .foot-legal{border-top:1px solid var(--line);padding:18px 0;font-size:11px;color:rgba(255,255,255,.4);line-height:1.7}
 @media(max-width:880px){.foot-grid{grid-template-columns:1fr 1fr;gap:32px}}
+
+.hero-rotator{position:relative;aspect-ratio:1;background:#000;overflow:hidden}
+.hero-rot-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1s cubic-bezier(.2,.7,.2,1)}
+.hero-rot-img.is-active{opacity:1}
+.hero-rot-label{position:absolute;left:20px;bottom:60px;font-family:var(--font-display);font-size:14px;letter-spacing:.18em;text-transform:uppercase;color:#fff;background:rgba(0,0,0,.55);backdrop-filter:blur(8px);padding:8px 14px;z-index:2}
+.hero-rot-dots{position:absolute;left:0;right:0;bottom:20px;display:flex;justify-content:center;gap:10px;z-index:2}
+.hero-rot-dot{width:36px;height:3px;background:rgba(255,255,255,.35);border:0;padding:0;cursor:pointer;transition:background .25s,transform .25s}
+.hero-rot-dot:hover{background:rgba(255,255,255,.6)}
+.hero-rot-dot.is-active{background:var(--green);transform:scaleY(1.6)}
 </style>
 </head>
 <body>
@@ -198,5 +207,30 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
   </div>
 </footer>
 
+
+<script>
+(function(){
+  var imgs = document.querySelectorAll('.hero-rot-img');
+  var dots = document.querySelectorAll('.hero-rot-dot');
+  var label = document.getElementById('hero-rot-label');
+  var labels = ['Golden Pineapple','OG Chem','Trophy Wife','Redneck Wedding'];
+  var idx = 0, n = imgs.length, auto;
+  function show(i){
+    imgs.forEach(function(im, k){ im.classList.toggle('is-active', k === i); });
+    dots.forEach(function(d, k){ d.classList.toggle('is-active', k === i); });
+    if (label) label.textContent = labels[i];
+    idx = i;
+  }
+  function next(){ show((idx + 1) % n); }
+  dots.forEach(function(d){
+    d.addEventListener('click', function(){
+      var i = +d.dataset.i;
+      show(i);
+      clearInterval(auto); auto = setInterval(next, 4500);
+    });
+  });
+  auto = setInterval(next, 4500);
+})();
+</script>
 </body>
 </html>
