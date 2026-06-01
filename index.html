@@ -377,9 +377,12 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
   .ticker-track{font-size:12px;gap:32px}
   .story{padding:80px 0}
   .story-stats{grid-template-columns:1fr 1fr;gap:24px;margin-top:40px}
-  .marquee{padding:40px 0}
+  .marquee{padding:48px 0}
   .marquee-track{gap:48px}
   .marquee-track img{height:36px}
+  .marquee-stage{height:140px}
+  .marquee-anchor{padding:12px 22px;box-shadow:0 0 40px 20px rgba(244,241,234,1)}
+  .marquee-anchor img{height:72px}
   .brands{padding:80px 0}
   .brands-head{margin-bottom:48px}
   .brand-card{padding:20px}
@@ -522,8 +525,8 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 <!-- MARQUEE -->
 <div class="marquee" aria-hidden="true">
   <p class="marquee-label">— The Phat Panda family —</p>
-  <div class="marquee-track">
-    <img src="https://phatpanda.com/assets/img/logos/PP-BlackGreen-Wide.svg" alt="Phat Panda">
+  <div class="marquee-stage">
+    <div class="marquee-track">
     <img src="https://phatpanda.com/assets/img/logos/sub-brands/Dabstract%20Black.svg" alt="Dabstract">
     <img src="https://phatpanda.com/assets/img/logos/sub-brands/Hot%20Sugar%20Black.svg" alt="Hot Sugar">
     <img src="https://phatpanda.com/assets/img/logos/sub-brands/SnickleFritz%20-%20Black.svg" alt="Snickle Fritz">
@@ -535,8 +538,6 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
     <img src="https://phatpanda.com/assets/img/logos/sub-brands/Firecracker%20Full%20Color.svg" alt="Firecracker">
     <img src="https://phatpanda.com/assets/img/logos/sub-brands/Hotshotz%20Black.svg" alt="Hot Shotz">
     <img src="https://phatpanda.com/assets/img/logos/sub-brands/28Eluzion%20Blue.png" alt="Eluzion">
-    <!-- duplicate set for seamless loop -->
-    <img src="https://phatpanda.com/assets/img/logos/PP-BlackGreen-Wide.svg" alt="">
     <img src="https://phatpanda.com/assets/img/logos/sub-brands/Dabstract%20Black.svg" alt="">
     <img src="https://phatpanda.com/assets/img/logos/sub-brands/Hot%20Sugar%20Black.svg" alt="">
     <img src="https://phatpanda.com/assets/img/logos/sub-brands/SnickleFritz%20-%20Black.svg" alt="">
@@ -548,6 +549,21 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
     <img src="https://phatpanda.com/assets/img/logos/sub-brands/Firecracker%20Full%20Color.svg" alt="">
     <img src="https://phatpanda.com/assets/img/logos/sub-brands/Hotshotz%20Black.svg" alt="">
     <img src="https://phatpanda.com/assets/img/logos/sub-brands/28Eluzion%20Blue.png" alt="">
+    <img src="https://phatpanda.com/assets/img/logos/sub-brands/Dabstract%20Black.svg" alt="">
+    <img src="https://phatpanda.com/assets/img/logos/sub-brands/Hot%20Sugar%20Black.svg" alt="">
+    <img src="https://phatpanda.com/assets/img/logos/sub-brands/SnickleFritz%20-%20Black.svg" alt="">
+    <img src="https://phatpanda.com/assets/img/logos/sub-brands/Panda%20Pen%20Black.svg" alt="">
+    <img src="https://phatpanda.com/assets/img/logos/sub-brands/Bangers%20Black.svg" alt="">
+    <img src="https://phatpanda.com/assets/img/logos/sub-brands/Juice%20Box%20Full%20Color.svg" alt="">
+    <img src="https://phatpanda.com/assets/img/logos/sub-brands/cakehouse-stacked-004.svg" alt="">
+    <img src="https://phatpanda.com/assets/img/logos/sub-brands/Kandy%20Shoppe%20Logo.svg" alt="">
+    <img src="https://phatpanda.com/assets/img/logos/sub-brands/Firecracker%20Full%20Color.svg" alt="">
+    <img src="https://phatpanda.com/assets/img/logos/sub-brands/Hotshotz%20Black.svg" alt="">
+    <img src="https://phatpanda.com/assets/img/logos/sub-brands/28Eluzion%20Blue.png" alt="">
+    </div>
+    <div class="marquee-anchor">
+      <img src="https://phatpanda.com/assets/img/logos/PP-BlackGreen-Wide.svg" alt="Phat Panda">
+    </div>
   </div>
 </div>
 
