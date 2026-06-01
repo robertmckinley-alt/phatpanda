@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Phat Panda Flower — Phat Panda</title>
-<meta name="description" content="Hand-trimmed, single-strain top-shelf nugs grown in our 60,000 sq-ft Spokane Valley facility. Every jar is one strain, one harvest week, traceable back to the room.">
+<meta name="description" content="Hand-trimmed, single-strain top-shelf nugs. Golden Pineapple, OG Chem, Trophy Wife, Redneck Wedding and the rest of the flagship line.">
 <link rel="canonical" href="https://phatpanda.com/brands/phat-panda.html">
-<meta property="og:title" content="Phat Panda Flower by Phat Panda">
-<meta property="og:description" content="Hand-trimmed, single-strain top-shelf nugs grown in our 60,000 sq-ft Spokane Valley facility. Every jar is one strain, one harvest week, traceable back to the room.">
+<meta property="og:title" content="Phat Panda Flower">
+<meta property="og:description" content="Hand-trimmed, single-strain top-shelf nugs.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://phatpanda.com/assets/img/products/phat-panda/hero.jpg">
 <meta name="theme-color" content="#000000">
@@ -55,11 +55,16 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 .section-eyebrow{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--green);font-weight:500;margin:0 0 24px}
 .section h2{font-family:var(--font-display);font-size:clamp(36px,5vw,64px);line-height:.95;letter-spacing:-.02em;text-transform:uppercase;margin:0 0 32px}
 .section h2 em{font-style:italic;font-family:var(--font-serif);color:var(--green);font-weight:400}
-.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-@media(max-width:880px){.gallery{grid-template-columns:1fr 1fr;gap:10px}}
-.gallery-card{aspect-ratio:1;background:#0f0f0f;overflow:hidden;position:relative;border:1px solid var(--line)}
-.gallery-card img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
-.gallery-card:hover img{transform:scale(1.05)}
+.strain-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:880px){.strain-grid{grid-template-columns:1fr 1fr;gap:10px}}
+.strain-card{background:#0f0f0f;border:1px solid var(--line);overflow:hidden;display:block;color:#fff;transition:all .3s}
+.strain-card:hover{border-color:var(--green);transform:translateY(-4px)}
+.strain-photo{aspect-ratio:1;position:relative;overflow:hidden}
+.strain-photo img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.strain-card:hover .strain-photo img{transform:scale(1.04)}
+.strain-info{padding:18px 20px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.strain-info h3{font-family:var(--font-display);font-size:14px;text-transform:uppercase;letter-spacing:.02em;margin:0;line-height:1.15}
+.strain-info span{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--green);font-family:var(--font-display)}
 .cta-band{padding:80px 0;background:linear-gradient(135deg,var(--green-dark) 0%,var(--green) 100%);color:#000;text-align:center}
 .cta-band h2{font-family:var(--font-display);font-size:clamp(36px,5vw,64px);line-height:.95;letter-spacing:-.02em;text-transform:uppercase;margin:0 0 16px;color:#000}
 .cta-band h2 em{font-style:italic;font-family:var(--font-serif);color:#fff;font-weight:400}
@@ -122,19 +127,32 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
         <a href="https://phatpandastore.com/" target="_blank" rel="noopener" class="btn btn-ghost">Shop direct</a>
       </div>
     </div>
-    <div class="hero-photo"><img src="/assets/img/products/phat-panda/hero.jpg" alt="Phat Panda Flower product"></div>
+    <div class="hero-photo"><img src="/assets/img/products/phat-panda/hero.jpg" alt="Golden Pineapple flower in mason jar"></div>
   </div>
 </section>
 
 <section class="section">
   <div class="wrap">
-    <p class="section-eyebrow">&mdash; What we make</p>
-    <h2>The <em>Phat Panda Flower</em> lineup.</h2>
-    <p style='font-size:16px;color:rgba(255,255,255,.75);margin:0 0 32px;max-width:660px'>The flagship line. We grow it ourselves, hand-trim it ourselves, and pack it ourselves &mdash; mason jars, 14g Bong Buddies, and infused pre-rolls. Single-strain, single-source, every time.</p>
-    <div class="gallery">
-      <div class="gallery-card"><img src="/assets/img/products/phat-panda/hero.jpg" alt="Phat Panda Flower 1" loading="lazy"></div>
-      <div class="gallery-card"><img src="/assets/img/products/phat-panda/1.jpg" alt="Phat Panda Flower 2" loading="lazy"></div>
-      <div class="gallery-card"><img src="/assets/img/products/phat-panda/2.jpg" alt="Phat Panda Flower 3" loading="lazy"></div>
+    <p class="section-eyebrow">&mdash; In the rotation</p>
+    <h2>Four <em>strains</em> we keep stocked.</h2>
+    <p style="font-size:16px;color:rgba(255,255,255,.75);margin:0 0 40px;max-width:660px">The current flagship lineup. Mason jar, hand-trimmed, sealed fresh. Strain availability rotates by season &mdash; ask your budtender what just dropped.</p>
+    <div class="strain-grid">
+      <a class="strain-card" href="/retailers.html">
+        <div class="strain-photo"><img src="/assets/img/products/phat-panda/hero.jpg" alt="Golden Pineapple" loading="lazy"></div>
+        <div class="strain-info"><h3>Golden Pineapple</h3><span>Sativa</span></div>
+      </a>
+      <a class="strain-card" href="/retailers.html">
+        <div class="strain-photo"><img src="/assets/img/products/phat-panda/1.jpg" alt="OG Chem" loading="lazy"></div>
+        <div class="strain-info"><h3>OG Chem</h3><span>Hybrid</span></div>
+      </a>
+      <a class="strain-card" href="/retailers.html">
+        <div class="strain-photo"><img src="/assets/img/products/phat-panda/2.jpg" alt="Trophy Wife" loading="lazy"></div>
+        <div class="strain-info"><h3>Trophy Wife</h3><span>Hybrid</span></div>
+      </a>
+      <a class="strain-card" href="/retailers.html">
+        <div class="strain-photo"><img src="/assets/img/products/phat-panda/3.jpg" alt="Redneck Wedding" loading="lazy"></div>
+        <div class="strain-info"><h3>Redneck Wedding</h3><span>Indica</span></div>
+      </a>
     </div>
   </div>
 </section>
@@ -155,7 +173,9 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
     <p class="section-eyebrow">&mdash; The rest of the family</p>
     <h2>More from <em>Phat Panda.</em></h2>
     <div class="related-grid">
-      <a class="related-card" href="/brands/dabstract.html"><img class="related-card-img" src="/assets/img/products/dabstract/hero.jpg" alt="" loading="lazy"><div class="related-card-overlay"></div><div class="related-card-inner"><span class="related-card-tag">Concentrates</span><h3>Dabstract</h3><p>Live rosin, live resin, cured resin</p></div></a><a class="related-card" href="/brands/panda-pen.html"><img class="related-card-img" src="/assets/img/products/panda-pen/hero.jpg" alt="" loading="lazy"><div class="related-card-overlay"></div><div class="related-card-inner"><span class="related-card-tag">Vape</span><h3>Panda Pen</h3><p>Pure live-resin carts &amp; disposables</p></div></a><a class="related-card" href="/brands/hot-sugar.html"><img class="related-card-img" src="/assets/img/products/hot-sugar/hero.jpg" alt="" loading="lazy"><div class="related-card-overlay"></div><div class="related-card-inner"><span class="related-card-tag">Edibles</span><h3>Hot Sugar</h3><p>Gummies made in-house from real fruit</p></div></a>
+      <a class="related-card" href="/brands/dabstract.html"><img class="related-card-img" src="/assets/img/products/dabstract/hero.jpg" alt="" loading="lazy"><div class="related-card-overlay"></div><div class="related-card-inner"><span class="related-card-tag">Concentrates</span><h3>Dabstract</h3><p>Live rosin, live resin, cured resin</p></div></a>
+      <a class="related-card" href="/brands/panda-pen.html"><img class="related-card-img" src="/assets/img/products/panda-pen/hero.jpg" alt="" loading="lazy"><div class="related-card-overlay"></div><div class="related-card-inner"><span class="related-card-tag">Vape</span><h3>Panda Pen</h3><p>Pure live-resin carts &amp; disposables</p></div></a>
+      <a class="related-card" href="/brands/hot-sugar.html"><img class="related-card-img" src="/assets/img/products/hot-sugar/hero.jpg" alt="" loading="lazy"><div class="related-card-overlay"></div><div class="related-card-inner"><span class="related-card-tag">Edibles</span><h3>Hot Sugar</h3><p>Gummies made in-house from real fruit</p></div></a>
     </div>
   </div>
 </section>
