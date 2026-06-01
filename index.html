@@ -208,10 +208,13 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 .showcase-note code{background:rgba(114,188,68,.1);color:var(--green);padding:2px 6px;font-family:monospace}
 
 /* ─── BRAND MARQUEE ─── */
-.marquee{padding:60px 0;background:var(--bone);color:#000;overflow:hidden;border-top:1px solid #000;border-bottom:1px solid #000}
-.marquee-label{text-align:center;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:#000;margin-bottom:32px;font-weight:500;opacity:.6}
-.marquee-track{display:flex;gap:80px;align-items:center;animation:scroll 40s linear infinite;width:max-content}
-.marquee-track img{height:48px;width:auto;filter:none;opacity:.85;transition:opacity .3s}
+.marquee{padding:80px 0;background:var(--bone);color:#000;overflow:hidden;border-top:1px solid #000;border-bottom:1px solid #000;position:relative}
+.marquee-label{text-align:center;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:#000;margin-bottom:48px;font-weight:500;opacity:.6}
+.marquee-stage{position:relative;height:200px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.marquee-anchor{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:5;background:var(--bone);padding:18px 40px;border-radius:200px;box-shadow:0 0 70px 36px rgba(244,241,234,1);pointer-events:none}
+.marquee-anchor img{height:128px;width:auto;display:block}
+.marquee-track{display:flex;gap:80px;align-items:center;animation:scroll 35s linear infinite;width:max-content;position:absolute;left:0;top:50%;transform:translateY(-50%);will-change:transform}
+.marquee-track img{height:60px;width:auto;filter:none;opacity:.85;transition:opacity .3s}
 .marquee-track img:hover{opacity:1}
 
 /* ─── HOUSE OF BRANDS ─── */
