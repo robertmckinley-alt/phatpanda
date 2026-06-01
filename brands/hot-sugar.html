@@ -60,6 +60,9 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 .gallery-card{aspect-ratio:1;background:#0f0f0f;overflow:hidden;position:relative;border:1px solid var(--line)}
 .gallery-card img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
 .gallery-card:hover img{transform:scale(1.05)}
+.gallery-card-label{position:absolute;left:0;right:0;bottom:0;padding:14px 16px;background:linear-gradient(to top,rgba(0,0,0,.85),rgba(0,0,0,0));display:flex;flex-direction:column;gap:2px;pointer-events:none}
+.gallery-card-tag{font-family:var(--font-display);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--green);font-weight:500}
+.gallery-card-name{font-family:var(--font-sans);font-size:13px;color:#fff;font-weight:500}
 .cta-band{padding:80px 0;background:linear-gradient(135deg,var(--green-dark) 0%,var(--green) 100%);color:#000;text-align:center}
 .cta-band h2{font-family:var(--font-display);font-size:clamp(36px,5vw,64px);line-height:.95;letter-spacing:-.02em;text-transform:uppercase;margin:0 0 16px;color:#000}
 .cta-band h2 em{font-style:italic;font-family:var(--font-serif);color:#fff;font-weight:400}
@@ -122,7 +125,7 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
         <a href="https://phatpandadirect.com/" target="_blank" rel="noopener" class="btn btn-ghost">Shop direct</a>
       </div>
     </div>
-    <div class="hero-photo"><img src="/assets/img/products/hot-sugar/hero.jpg" alt="Hot Sugar product"></div>
+    <div class="hero-photo"><img src="/assets/img/products/hot-sugar/panda-candies-butterscotch.jpg" alt="Panda Candies — Butterscotch"></div>
   </div>
 </section>
 
@@ -130,11 +133,32 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
   <div class="wrap">
     <p class="section-eyebrow">&mdash; What we make</p>
     <h2>The <em>Hot Sugar</em> lineup.</h2>
-    <p style='font-size:16px;color:rgba(255,255,255,.75);margin:0 0 32px;max-width:660px'>Our edibles kitchen runs in-house. Real fruit, real sugar, real Phat Panda extract.</p>
+    <p style='font-size:16px;color:rgba(255,255,255,.75);margin:0 0 32px;max-width:660px'>Our edibles kitchen runs in-house. Panda Candies hard candies, LR Gummiez, and Chocolate Caramels &mdash; real fruit, real sugar, real Phat Panda extract.</p>
     <div class="gallery">
-      <div class="gallery-card"><img src="/assets/img/products/hot-sugar/hero.jpg" alt="Hot Sugar 1" loading="lazy"></div>
-      <div class="gallery-card"><img src="/assets/img/products/hot-sugar/1.jpg" alt="Hot Sugar 2" loading="lazy"></div>
-      <div class="gallery-card"><img src="/assets/img/products/hot-sugar/2.jpg" alt="Hot Sugar 3" loading="lazy"></div>
+      <div class="gallery-card">
+        <img src="/assets/img/products/hot-sugar/panda-candies-butterscotch.jpg" alt="Panda Candies — Butterscotch" loading="lazy">
+        <div class="gallery-card-label"><span class="gallery-card-tag">Panda Candies</span><span class="gallery-card-name">Butterscotch</span></div>
+      </div>
+      <div class="gallery-card">
+        <img src="/assets/img/products/hot-sugar/panda-candies-blue-raspberry.jpg" alt="Panda Candies — Blue Raspberry" loading="lazy">
+        <div class="gallery-card-label"><span class="gallery-card-tag">Panda Candies</span><span class="gallery-card-name">Blue Raspberry</span></div>
+      </div>
+      <div class="gallery-card">
+        <img src="/assets/img/products/hot-sugar/gummiez-peach-mango.jpg" alt="LR Gummiez — Peach Mango" loading="lazy">
+        <div class="gallery-card-label"><span class="gallery-card-tag">LR Gummiez</span><span class="gallery-card-name">Peach Mango</span></div>
+      </div>
+      <div class="gallery-card">
+        <img src="/assets/img/products/hot-sugar/gummiez-kiwi-strawberry.jpg" alt="LR Gummiez — Kiwi Strawberry" loading="lazy">
+        <div class="gallery-card-label"><span class="gallery-card-tag">LR Gummiez</span><span class="gallery-card-name">Kiwi Strawberry</span></div>
+      </div>
+      <div class="gallery-card">
+        <img src="/assets/img/products/hot-sugar/chocolate-milk-caramel.jpg" alt="Chocolate Caramels — Milk" loading="lazy">
+        <div class="gallery-card-label"><span class="gallery-card-tag">Chocolates</span><span class="gallery-card-name">Milk Caramel</span></div>
+      </div>
+      <div class="gallery-card">
+        <img src="/assets/img/products/hot-sugar/chocolate-dark.jpg" alt="Chocolate — Dark" loading="lazy">
+        <div class="gallery-card-label"><span class="gallery-card-tag">Chocolates</span><span class="gallery-card-name">Dark</span></div>
+      </div>
     </div>
   </div>
 </section>
