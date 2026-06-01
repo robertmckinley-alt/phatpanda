@@ -124,9 +124,16 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 .hero-inner{position:relative;z-index:2;max-width:1100px}
 .hero-eyebrow{display:flex;align-items:center;gap:14px;font-size:11px;text-transform:uppercase;letter-spacing:.3em;color:rgba(255,255,255,.7);font-weight:500;margin-bottom:28px}
 .hero-eyebrow::before{content:"";width:32px;height:1px;background:var(--green)}
-.hero-award{font-family:var(--font-display);font-size:clamp(56px,11vw,168px);line-height:.9;letter-spacing:-.03em;text-transform:uppercase;margin:0;color:#fff;text-shadow:0 4px 32px rgba(0,0,0,.5)}
-.hero-award em{font-style:italic;font-family:var(--font-serif);color:var(--green);font-weight:400;display:inline-block}
-.hero-award-years{display:block;font-family:var(--font-display);font-size:clamp(20px,2.5vw,36px);letter-spacing:.04em;color:var(--green);margin-top:8px;line-height:1}
+.hero-headline{position:relative;display:block}
+.hero-h{position:absolute;top:0;left:0;right:0;font-family:var(--font-display);line-height:.9;letter-spacing:-.03em;text-transform:uppercase;margin:0;color:#fff;text-shadow:0 4px 32px rgba(0,0,0,.55);opacity:0;transform:translateY(8px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)}
+.hero-h.is-active{opacity:1;transform:translateY(0);position:relative}
+.hero-h[data-i="0"]{font-size:clamp(72px,16vw,220px);line-height:.85;letter-spacing:-.04em}
+.hero-h-glyph{color:var(--green);font-style:italic;font-family:var(--font-serif);font-weight:400}
+.hero-h--award{font-size:clamp(56px,11vw,160px)}
+.hero-h--award em{font-style:italic;font-family:var(--font-serif);color:var(--green);font-weight:400;display:inline-block}
+.hero-h-years{display:block;font-family:var(--font-display);font-size:clamp(20px,2.5vw,36px);letter-spacing:.04em;color:var(--green);margin-top:8px;line-height:1}
+.hero-h--brands,.hero-h--craft{font-size:clamp(56px,11vw,150px)}
+.hero-h--brands em,.hero-h--craft em{font-style:italic;font-family:var(--font-serif);color:var(--green);font-weight:400}
 .hero-wordmark{display:flex;align-items:center;gap:18px;margin-top:36px;color:rgba(255,255,255,.85);font-family:var(--font-display);font-size:14px;letter-spacing:.18em;text-transform:uppercase}
 .hero-wordmark::before{content:"";width:48px;height:1px;background:rgba(255,255,255,.4)}
 .hero-tagline{max-width:560px;font-size:17px;line-height:1.55;color:rgba(255,255,255,.85);margin:28px 0 32px}
@@ -455,7 +462,12 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
   <div class="wrap">
     <div class="hero-inner">
       <p class="hero-eyebrow">Spokane Valley, WA &middot; Est. 2014 &middot; Now in WA, CA, MA</p>
-      <h1 class="hero-award">#1 WA <em>Producer</em><span class="hero-award-years">2019 — 2025 &middot; Seven Years Running</span></h1>
+      <div class="hero-headline" aria-live="polite">
+        <h1 class="hero-h is-active" data-i="0">PHAT<br>PA<span class="hero-h-glyph">n</span>DA</h1>
+        <h1 class="hero-h hero-h--award" data-i="1">#1 WA <em>Producer</em><span class="hero-h-years">2019 &mdash; 2025 &middot; Seven Years Running</span></h1>
+        <h1 class="hero-h hero-h--brands" data-i="2">A family<br>of <em>12 brands.</em></h1>
+        <h1 class="hero-h hero-h--craft" data-i="3">Craft.<br>At <em>scale.</em></h1>
+      </div>
       <div class="hero-wordmark">Phat Panda &middot; A house of 12 brands</div>
       <p class="hero-tagline">A vertically-integrated cannabis company growing award-winning flower, concentrates, vapes, and edibles for the Panda family &mdash; coast to coast.</p>
       <div class="hero-cta">
@@ -890,20 +902,22 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 (function(){
   var imgs = document.querySelectorAll('.hero-bg-img');
   var dots = document.querySelectorAll('.hero-bg-dot');
+  var heds = document.querySelectorAll('.hero-h');
   var label = document.getElementById('hero-strain-name');
   var names = ['White Runtz','Wedding Cake','Lust','Beef Cake'];
   var idx = 0, n = imgs.length, auto;
   function show(i){
     imgs.forEach(function(im, k){ im.classList.toggle('is-active', k === i); });
     dots.forEach(function(d, k){ d.classList.toggle('is-active', k === i); });
+    heds.forEach(function(h, k){ h.classList.toggle('is-active', k === i); });
     if (label) label.textContent = names[i];
     idx = i;
   }
   function next(){ show((idx + 1) % n); }
   dots.forEach(function(d){
-    d.addEventListener('click', function(){ show(+d.dataset.i); clearInterval(auto); auto = setInterval(next, 6000); });
+    d.addEventListener('click', function(){ show(+d.dataset.i); clearInterval(auto); auto = setInterval(next, 6500); });
   });
-  auto = setInterval(next, 6000);
+  auto = setInterval(next, 6500);
 })();
 </script>
 </body>
