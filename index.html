@@ -421,18 +421,35 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 
 <main id="main">
 
-<!-- HERO -->
+<!-- HERO — Documentary + Award-First -->
 <section class="hero" id="top">
+  <div class="hero-bg" aria-hidden="true">
+    <img class="hero-bg-img is-active" data-i="0" src="/assets/img/products/phat-panda/strain-1-golden-pineapple.jpg" alt="">
+    <img class="hero-bg-img" data-i="1" src="/assets/img/products/phat-panda/strain-2-og-chem.jpg" alt="">
+    <img class="hero-bg-img" data-i="2" src="/assets/img/products/phat-panda/strain-3-trophy-wife.jpg" alt="">
+    <img class="hero-bg-img" data-i="3" src="/assets/img/products/phat-panda/strain-4-redneck-wedding.jpg" alt="">
+  </div>
   <div class="wrap">
-    <p class="hero-eyebrow">Spokane Valley, WA · Est. 2014 · Now in WA, CA, MA</p>
-    <h1 class="hero-mark">PHAT<br>PA<span>n</span>DA</h1>
-    <div class="hero-meta">
-      <p class="hero-tagline">A vertically-integrated cannabis company growing award-winning flower, concentrates, vapes, and edibles for the Panda family — coast to coast.</p>
+    <div class="hero-inner">
+      <p class="hero-eyebrow">Spokane Valley, WA &middot; Est. 2014 &middot; Now in WA, CA, MA</p>
+      <h1 class="hero-award">#1 WA <em>Producer</em><span class="hero-award-years">2019 — 2025 &middot; Seven Years Running</span></h1>
+      <div class="hero-wordmark">Phat Panda &middot; A house of 12 brands</div>
+      <p class="hero-tagline">A vertically-integrated cannabis company growing award-winning flower, concentrates, vapes, and edibles for the Panda family &mdash; coast to coast.</p>
       <div class="hero-cta">
-        <a href="#brands" class="a-primary">Meet the family →</a>
-        <a href="https://phatpandadirect.com/" target="_blank" rel="noopener" class="a-ghost">Shop now</a>
+        <a href="#brands" class="a-primary">Meet the family &rarr;</a>
+        <a href="https://phatpandadirect.com/" target="_blank" rel="noopener" class="a-ghost">Shop direct</a>
       </div>
     </div>
+  </div>
+  <div class="hero-strain-tag" aria-hidden="true">
+    <span class="hero-strain-tag-eyebrow">Now in jars</span>
+    <span class="hero-strain-tag-name" id="hero-strain-name">Golden Pineapple</span>
+  </div>
+  <div class="hero-bg-dots" role="tablist" aria-label="Strain spotlight">
+    <button class="hero-bg-dot is-active" data-i="0" aria-label="Golden Pineapple"></button>
+    <button class="hero-bg-dot" data-i="1" aria-label="OG Chem"></button>
+    <button class="hero-bg-dot" data-i="2" aria-label="Trophy Wife"></button>
+    <button class="hero-bg-dot" data-i="3" aria-label="Redneck Wedding"></button>
   </div>
   <div class="hero-scroll" aria-hidden="true">Scroll</div>
 </section>
@@ -843,6 +860,27 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
   });
   var yr=document.getElementById('yr');
   if (yr) yr.textContent = new Date().getFullYear();
+})();
+</script>
+
+<script>
+(function(){
+  var imgs = document.querySelectorAll('.hero-bg-img');
+  var dots = document.querySelectorAll('.hero-bg-dot');
+  var label = document.getElementById('hero-strain-name');
+  var names = ['Golden Pineapple','OG Chem','Trophy Wife','Redneck Wedding'];
+  var idx = 0, n = imgs.length, auto;
+  function show(i){
+    imgs.forEach(function(im, k){ im.classList.toggle('is-active', k === i); });
+    dots.forEach(function(d, k){ d.classList.toggle('is-active', k === i); });
+    if (label) label.textContent = names[i];
+    idx = i;
+  }
+  function next(){ show((idx + 1) % n); }
+  dots.forEach(function(d){
+    d.addEventListener('click', function(){ show(+d.dataset.i); clearInterval(auto); auto = setInterval(next, 6000); });
+  });
+  auto = setInterval(next, 6000);
 })();
 </script>
 </body>
