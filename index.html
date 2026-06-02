@@ -405,8 +405,7 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
      To re-enable: uncomment the block below and remove the AGE_GATE_DISABLED constant in the script tag at bottom.
      The current JS uses a 30-day cookie ("pp_age=1; max-age=2592000") + localStorage fallback,
      so once a visitor passes once they won't see the modal again for 30 days. -->
-<!--
-<div id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-title">
+<div id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-title" hidden>
   <div class="gate-card">
     <img src="/assets/img/logos/PP-WhiteGreen-Wide.svg" alt="Phat Panda">
     <h2 id="gate-title">You must be 21+</h2>
@@ -417,7 +416,6 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
     </div>
   </div>
 </div>
--->
 
 <!-- NAV -->
 <nav class="nav" id="nav">

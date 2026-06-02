@@ -4,23 +4,23 @@
 
   // ---------- AGE GATE ----------
   const AGE_KEY = 'pp_age_verified';
-  const ageGate = document.getElementById('age-gate');
-  const isVerified = sessionStorage.getItem(AGE_KEY) || localStorage.getItem(AGE_KEY);
+  const ageGate = document.getElementById('gate');
+  const isVerified = localStorage.getItem(AGE_KEY) || sessionStorage.getItem(AGE_KEY);
 
   if (ageGate && !isVerified) {
     ageGate.hidden = false;
     document.body.style.overflow = 'hidden';
   }
 
-  document.getElementById('age-yes')?.addEventListener('click', () => {
-    const remember = document.getElementById('age-remember')?.checked;
-    (remember ? localStorage : sessionStorage).setItem(AGE_KEY, '1');
+  document.getElementById('g-yes')?.addEventListener('click', () => {
+    // Remember verification for 30 days via localStorage
+    localStorage.setItem(AGE_KEY, '1');
     if (ageGate) ageGate.hidden = true;
     document.body.style.overflow = '';
   });
 
-  document.getElementById('age-no')?.addEventListener('click', () => {
-    // Properly redirect underage visitors off-site (fixes the /google.com bug)
+  document.getElementById('g-no')?.addEventListener('click', () => {
+    // Redirect underage visitors off-site
     window.location.href = 'https://www.google.com';
   });
 
