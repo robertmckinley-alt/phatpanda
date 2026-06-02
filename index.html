@@ -213,6 +213,7 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 @media(max-width:1100px){.brand-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:760px){.brand-grid{grid-template-columns:repeat(2,1fr)}}
 .brand-card{position:relative;aspect-ratio:1;border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:32px;display:flex;flex-direction:column;justify-content:space-between;background:transparent;transition:background .3s,transform .3s;overflow:hidden;cursor:pointer}
+.brand-card{cursor:default}.brand-card:hover{transform:none}.brand-card .brand-card-arrow{display:none}
 .brand-card::before{content:"";position:absolute;inset:0;background:var(--green);transform:translateY(101%);transition:transform .5s cubic-bezier(.7,0,.3,1);z-index:0}
 .brand-card:hover::before{transform:translateY(0)}
 .brand-card>*{position:relative;z-index:1;transition:color .35s}
@@ -565,63 +566,51 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
       </div>
     </div>
     <div class="brand-grid" id="brand-grid">
-      <a class="brand-card" data-cat="flower concentrate" href="https://phatpandadirect.com/search?q=Phat+Panda" target="_blank" rel="noopener">
-        <span class="brand-card-arrow">↗</span>
+      <a class="brand-card" data-cat="flower concentrate">
         <div class="brand-card-logo"><img src="/assets/img/logos/PP-BlackGreen-Square.svg" alt="Phat Panda"></div>
         <div class="brand-card-body"><span class="brand-card-name">Phat Panda</span><span class="brand-card-cat">Flower</span></div>
       </a>
-      <a class="brand-card" data-cat="concentrate vape" href="https://phatpandadirect.com/search?q=Dabstract" target="_blank" rel="noopener">
-        <span class="brand-card-arrow">↗</span>
+      <a class="brand-card" data-cat="concentrate vape">
         <div class="brand-card-logo"><img src="/assets/img/logos/sub-brands/Dabstract%20Black.svg" alt="Dabstract"></div>
         <div class="brand-card-body"><span class="brand-card-name">Dabstract</span><span class="brand-card-cat">Concentrate</span></div>
       </a>
-      <a class="brand-card" data-cat="edible" href="https://phatpandadirect.com/search?q=Hot+Sugar" target="_blank" rel="noopener">
-        <span class="brand-card-arrow">↗</span>
+      <a class="brand-card" data-cat="edible">
         <div class="brand-card-logo"><img src="/assets/img/logos/sub-brands/Hot%20Sugar%20Black.svg" alt="Hot Sugar"></div>
         <div class="brand-card-body"><span class="brand-card-name">Hot Sugar</span><span class="brand-card-cat">Edible</span></div>
       </a>
-      <a class="brand-card" data-cat="vape" href="https://phatpandadirect.com/search?q=Panda+Pen" target="_blank" rel="noopener">
-        <span class="brand-card-arrow">↗</span>
+      <a class="brand-card" data-cat="vape">
         <div class="brand-card-logo"><img src="/assets/img/logos/sub-brands/Panda%20Pen%20Black.svg" alt="Panda Pen"></div>
         <div class="brand-card-body"><span class="brand-card-name">Panda Pen</span><span class="brand-card-cat">Vape</span></div>
       </a>
-      <a class="brand-card" data-cat="preroll" href="https://phatpandadirect.com/search?q=Bangers" target="_blank" rel="noopener">
-        <span class="brand-card-arrow">↗</span>
+      <a class="brand-card" data-cat="preroll">
         <div class="brand-card-logo"><img src="/assets/img/logos/sub-brands/Bangers%20Black.svg" alt="Bangers"></div>
         <div class="brand-card-body"><span class="brand-card-name">Bangers</span><span class="brand-card-cat">Pre-Roll</span></div>
       </a>
-      <a class="brand-card" data-cat="vape" href="https://phatpandadirect.com/search?q=Juice+Box" target="_blank" rel="noopener">
-        <span class="brand-card-arrow">↗</span>
+      <a class="brand-card" data-cat="vape">
         <div class="brand-card-logo"><img src="/assets/img/logos/sub-brands/Juice%20Box%20Full%20Color.svg" alt="Juice Box"></div>
         <div class="brand-card-body"><span class="brand-card-name">Juice Box</span><span class="brand-card-cat">Vape</span></div>
       </a>
-      <a class="brand-card" data-cat="flower" href="https://phatpandadirect.com/search?q=Cake+House" target="_blank" rel="noopener">
-        <span class="brand-card-arrow">↗</span>
+      <a class="brand-card" data-cat="flower">
         <div class="brand-card-logo"><img src="/assets/img/logos/sub-brands/cakehouse-stacked-004.svg" alt="Cake House"></div>
         <div class="brand-card-body"><span class="brand-card-name">Cake House</span><span class="brand-card-cat">Flower</span></div>
       </a>
-      <a class="brand-card" data-cat="flower" href="https://phatpandadirect.com/search?q=Kandy+Shoppe" target="_blank" rel="noopener">
-        <span class="brand-card-arrow">↗</span>
+      <a class="brand-card" data-cat="flower">
         <div class="brand-card-logo"><img src="/assets/img/logos/sub-brands/Kandy%20Shoppe%20Logo.svg" alt="Kandy Shoppe"></div>
         <div class="brand-card-body"><span class="brand-card-name">Kandy Shoppe</span><span class="brand-card-cat">Flower</span></div>
       </a>
-      <a class="brand-card" data-cat="flower concentrate vape" href="https://phatpandadirect.com/search?q=Snickle+Fritz" target="_blank" rel="noopener">
-        <span class="brand-card-arrow">↗</span>
+      <a class="brand-card" data-cat="flower concentrate vape">
         <div class="brand-card-logo"><img src="/assets/img/logos/sub-brands/SnickleFritz%20-%20Black.svg" alt="Snickle Fritz"></div>
         <div class="brand-card-body"><span class="brand-card-name">Snickle Fritz</span><span class="brand-card-cat">Flower</span></div>
       </a>
-      <a class="brand-card" data-cat="beverage" href="https://phatpandadirect.com/search?q=Hot+Shotz" target="_blank" rel="noopener">
-        <span class="brand-card-arrow">↗</span>
+      <a class="brand-card" data-cat="beverage">
         <div class="brand-card-logo"><img src="/assets/img/logos/sub-brands/Hotshotz%20Black.svg" alt="Hot Shotz"></div>
         <div class="brand-card-body"><span class="brand-card-name">Hot Shotz</span><span class="brand-card-cat">Beverage</span></div>
       </a>
-      <a class="brand-card" data-cat="flower" href="https://phatpandadirect.com/search?q=Eluzion" target="_blank" rel="noopener">
-        <span class="brand-card-arrow">↗</span>
+      <a class="brand-card" data-cat="flower">
         <div class="brand-card-logo"><img src="/assets/img/logos/sub-brands/28Eluzion%20Blue.png" alt="Eluzion"></div>
         <div class="brand-card-body"><span class="brand-card-name">Eluzion</span><span class="brand-card-cat">Flower</span></div>
       </a>
-      <a class="brand-card" data-cat="preroll" href="https://phatpandadirect.com/search?q=Firecracker" target="_blank" rel="noopener">
-        <span class="brand-card-arrow">↗</span>
+      <a class="brand-card" data-cat="preroll">
         <div class="brand-card-logo"><img src="/assets/img/logos/sub-brands/Firecracker%20Full%20Color.svg" alt="Firecracker"></div>
         <div class="brand-card-body"><span class="brand-card-name">Firecracker</span><span class="brand-card-cat">Pre-Roll</span></div>
       </a>
