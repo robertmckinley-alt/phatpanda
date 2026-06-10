@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Careers — Grow Your Career at Phat Panda</title>
+    <title>California Careers — Grow Your Career at Phat Panda</title>
     <meta
       name="description"
       content="Join 850+ team members across Washington, California, and Massachusetts. Medical, dental, vision, EAP, monthly product samples, real growth tracks."
@@ -67,21 +67,37 @@
     <main id="main">
       <section class="subpage-hero">
         <div class="container">
-          <p class="eyebrow eyebrow--light">Careers</p>
+          <p class="eyebrow eyebrow--light">Careers | California</p>
           <h1>
-            Grow your career.<br /><span class="text-green">Grow with us.</span>
+            Open Positions<br /><span class="text-green">in California.</span>
           </h1>
-          <p>
-            From cultivation to packaging, science to design — we're hiring
-            across three states. The Panda family is 850 strong, and we make
-            room for the right people.
-          </p>
+        </div>
+      </section>
+
+      <section class="section openings">
+        <div class="container">
+          <div class="card dark">
+            <div class="select-wrapper">
+              <select name="location" id="location">
+                <option value="" selected disabled>Select Location</option>
+                <option value="all">All Locations</option>
+              </select>
+            </div>
+          </div>
+          <div class="openings-wrapper" data-state="CA">
+            <p class="no-openings"></p>
+            <script
+              type="text/javascript"
+              src="https://app.jazz.co/widgets/basic/create/growopfarms"
+              charset="utf-8"
+            ></script>
+          </div>
         </div>
       </section>
 
       <section class="section">
         <div class="container">
-          <h2 class="section__title">Open roles by location</h2>
+          <h2 class="section__title">Other locations</h2>
           <div class="career-grid">
             <article class="career-card">
               <h3>Washington</h3>
@@ -99,13 +115,6 @@
                 East-coast operations. Manufacturing, retail support, sales.
               </p>
               <a href="/careers/massachusetts.html" class="btn btn--primary"
-                >View open roles</a
-              >
-            </article>
-            <article class="career-card">
-              <h3>California</h3>
-              <p>West-coast operations under license C12-0000319-LIC.</p>
-              <a href="/careers/california.html" class="btn btn--primary"
                 >View open roles</a
               >
             </article>
@@ -241,5 +250,6 @@
 
     <a href="#top" class="back-to-top" aria-label="Back to top">↑</a>
     <script src="/assets/js/main.js" defer></script>
+    <script src="/assets/js/careers.js" defer></script>
   </body>
 </html>
